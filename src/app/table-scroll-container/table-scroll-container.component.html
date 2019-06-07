@@ -1,0 +1,22 @@
+<div id="main-container">
+  <div id="pending-orders-header">
+    <p id="header-text">Pending Orders (112)</p>
+    <div id="seperator"></div>
+    <div id="table-column-headers">
+      <p class="column-header-text">Order No</p>
+      <p class="column-header-text">Order Value</p>
+      <p class="column-header-text">Placed On</p>
+      <p class="column-header-text">Payment Mode</p>
+      <p class="column-header-text">Payment Status</p>
+    </div>
+  </div>
+  <div id="pending-orders-content">
+    <div class="order-row" *ngFor="let _ of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]">
+        <p class="column-text">12345</p>
+        <p class="column-text">Rs. 10,200</p>
+        <p class="column-text">25-05-2019</p>
+        <p class="column-text">COD</p>
+        <p class="column-text">Pending</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+#main-container{
+    width: 100%;
+}
+#dashboard{
+    width: 1366px;
+    height: calc(100vh - 48px);
+    margin: 0px auto;
+    /* background: pink; */
+}
+#live-counters-section{
+    width: 100%;
+    height: 128px;
+    /* background:  black; */
+    padding: 8px 0px;
+    padding-left: 8px;
+    text-align: justify;
+}
+.live-counter{
+    height: 112px;
+    width: calc(25% - 8px);
+    margin-right: 8px;
+    display: inline-block;
+    text-align: justify;
+}
+.name{
+    width: 70%;
+    display: inline-block;
+    height: inherit;
+    text-align: center;
+}
+.count{
+    width: 30%;
+    display: inline-block;
+    height: inherit;
+    vertical-align: top;
+    text-align: center;
+}
+.count-text{
+    margin: 33.5px auto !important;
+    font-size: 32px !important;
+}
+.text{
+    font-size: 20px;
+    color: black;
+    font-weight: 600;
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+}
+.icon{
+    height: 60%;
+    font-size: 48px;
+    padding-top: 16px;
+    display: block;
+}
+
+
+#pending-orders-container{
+    height: 512px;
+    width: 100%;
+    padding: 8px;
+    
+}

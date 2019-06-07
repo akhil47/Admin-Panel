@@ -1,0 +1,56 @@
+#main-container{
+    width: 100%;
+}
+/* ::-webkit-scrollbar {
+    height: 0px;
+    width: 0px;
+    background: transparent;
+} */
+#pending-orders-header{
+    width: 100%;
+    padding: 8px;
+    padding-bottom: 0px;
+    background-color: #8eb9ff;
+}
+#header-text{
+    margin: 0px;
+    font-size: 18px;
+    font-weight: 600;
+}
+#table-column-headers{
+    text-align: center;
+}
+#seperator{
+    height: 1px;
+    margin-top: 8px;
+    width: 100%;
+    background: grey;
+}
+.column-header-text{
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px;
+    margin: 0px;
+    display: inline-block;
+    width: 20%;
+}
+
+#pending-orders-content{
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: calc(512px - 96px);
+    background-color: rgb(142, 185, 255, 0.1);
+    padding-left: 16px;
+}
+.order-row{
+    width: 100%;
+    text-align: center;
+}
+.column-text{
+    font-size: 16px;
+    padding: 8px;
+    margin: 0px;
+    display: inline-block;
+    width: 20%;
+}
