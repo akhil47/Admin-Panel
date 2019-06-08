@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-table-scroll-container',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableScrollContainerComponent implements OnInit {
 
+  @Input() headerText: string
+  @Input() columnHeaders: string[]
+
+  columnWidth: string
+
   constructor() { }
 
   ngOnInit() {
+    this.columnWidth = 100 / this.columnHeaders.length + '%'
   }
-
 }
