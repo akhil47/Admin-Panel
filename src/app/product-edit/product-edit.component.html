@@ -1,0 +1,109 @@
+<div id="main-container">
+  <!-- CONVERT TO REACTIVE FORM -->
+    <p id="header">Product Details</p>
+    <div id="details-container">
+      <table style="width: 100%;">
+        <tr>
+          <td class="side-headings">Product Name</td>
+          <td class="side-headings"> : &nbsp;</td>
+          <td><input type="text" class="form-control"></td>
+        </tr>
+        <tr>
+          <td class="side-headings">Product ID</td>
+          <td class="side-headings"> : &nbsp;</td>
+          <td><input type="text" class="form-control"></td>
+        </tr>
+        <tr>
+          <td class="side-headings">Brand</td>
+          <td class="side-headings"> : &nbsp;</td>
+          <td><input type="text" class="form-control"></td>
+        </tr>
+        <tr>
+          <td class="side-headings">Category</td>
+          <td class="side-headings"> : &nbsp;</td>
+          <td><input type="text" class="form-control"></td>
+        </tr>
+        <tr>
+          <td class="side-headings">Sub Category</td>
+          <td class="side-headings"> : &nbsp;</td>
+          <td><input type="text" class="form-control"></td>
+        </tr>
+        <tr>
+          <td class="side-headings">Status</td>
+          <td class="side-headings"> : &nbsp;</td>
+          <td><div style="text-align: justify;">
+            <input type="radio" name="status" class="radio" value="Active" checked>
+            <label class="radio-text">Active</label>
+            <input type="radio" name="status" class="radio" value="Inactive">
+            <label class="radio-text">Inactive</label>
+          </div></td>
+        </tr>
+      </table>
+      <div id="seperator"></div>
+      <p class="main-side-heading">Images</p>
+      <div id="seperator"></div>
+      <div id="images-container">
+        <div class="image" *ngFor="let _ of [1,2,3,4,5]">
+          <img src="https://assets.jassets.com/h_600,q_95,w_440/v1/assets/images/productImage/2018/7/6/cd37416d-5556-4024-9d7f-bb5ebde43a6a1530825330030-1.webp" alt="">
+          <a class="image-remove">Remove</a>
+        </div>
+        <div class="image" id="new-image">
+          +<br><p style="margin: 0px; font-size: 14px; font-weight: bold;">New image</p>
+        </div>
+      </div>
+      <div id="seperator"></div>
+      <p class="main-side-heading">Available Sizes</p>
+      <div id="seperator"></div>
+      <table style="width: 100%;">
+        <tr>
+          <th>Size Name</th>
+          <th>Available Quantity</th>
+          <th>Price</th>
+          <th>Discount</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+        <tr>
+          <td><input type="text" class="form-control"></td>
+          <td><input type="text" class="form-control"></td>
+          <td><input type="text" class="form-control"></td>
+          <td><input type="text" class="form-control"></td>
+          <td><div style="text-align: justify;">
+              <input type="radio" name="size1-status" class="radio" value="Active" checked>
+              <label class="radio-text">Active</label>
+              <input type="radio" name="size1-status" class="radio" value="Inactive">
+              <label class="radio-text">Inactive</label>
+          </div></td>
+          <td><button type="button" class="btn btn-danger">X</button></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="form-control"></td>
+          <td><input type="text" class="form-control"></td>
+          <td><input type="text" class="form-control"></td>
+          <td><input type="text" class="form-control"></td>
+          <td><div style="text-align: justify;">
+              <input type="radio" name="size2-status" class="radio" value="Active" checked>
+              <label class="radio-text">Active</label>
+              <input type="radio" name="size2-status" class="radio" value="Inactive">
+              <label class="radio-text">Inactive</label>
+          </div></td>
+          <td><button type="button" class="btn btn-danger">X</button></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="form-control"></td>
+          <td><input type="text" class="form-control"></td>
+          <td><input type="text" class="form-control"></td>
+          <td><input type="text" class="form-control"></td>
+          <td><div style="text-align: justify;">
+              <input type="radio" name="size3-status" class="radio" value="Active" checked>
+              <label class="radio-text">Active</label>
+              <input type="radio" name="size3-status" class="radio" value="Inactive">
+              <label class="radio-text">Inactive</label>
+          </div></td>
+          <td><button type="button" class="btn btn-danger">X</button></td>
+        </tr>
+      </table>
+      <a id="add-size">+ Add new Size</a>
+      <button type="button" class="btn btn-primary">Edit Details</button>
+    </div>
+  </div>

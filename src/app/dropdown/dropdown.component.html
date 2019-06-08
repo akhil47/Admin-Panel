@@ -1,0 +1,12 @@
+<div id="main-container">
+  <a id="button" (click)="toggleMenu()">
+    {{ selectedItem }} <span *ngIf="!isItemSelected" class="caret"></span></a>
+  <div id="dropdown-menu" [ngClass]="{ 'expand': isExpanded }">
+    <a (click)="itemSelected('Levis')"
+      class="menu-item"
+      *ngFor="let _ of [1,2,3,4,5,6,7]"
+      >
+      Levis
+    </a>
+  </div>
+</div>

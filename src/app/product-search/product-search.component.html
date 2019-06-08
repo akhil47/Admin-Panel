@@ -7,5 +7,17 @@
         <label>ID</label>
       <input class="radio" type="radio" name="search-option" value="id">
         <label>Name</label>
+      <div id="filters-container">
+          <app-dropdown class="filter"></app-dropdown>
+          <app-dropdown class="filter"></app-dropdown>
+          <app-dropdown class="filter"></app-dropdown>
+          <app-dropdown class="filter"></app-dropdown>
+      </div>
+  </div>
+  <div id="search-results-container">
+    <app-table-scroll-container
+      [headerText]="header"
+      [columnHeaders]="columns"
+    ></app-table-scroll-container>
   </div>
 </div>

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductSearchComponent implements OnInit {
 
+  header: string = 'Matching Results (15)' //number should be dynamic
+  columns = ['Product ID/ Name', 'Brand', 'Category', 'Sub Category', 'Status']
   constructor() { }
 
   ngOnInit() {

@@ -21,13 +21,13 @@
     text-align: center;
 }
 #sidebar{
-    width: 30%;
+    width: 20%;
     height: 128px;
     padding-right: 8px;
     display: inline-block;
     vertical-align: top;
 }
 #content{
-    width: 70%;
+    width: 80%;
     display: inline-block;
 }

@@ -17,7 +17,7 @@
 .icon{
     position: absolute;
     top: 16px;
-    left: 764px;
+    left: 880px;
     font-size: 16px;
 }
 .radio{
@@ -34,4 +34,12 @@ label{
     padding: 4px 4px;
     display: inline-block;
     vertical-align: top;
+}
+
+#filters-container{
+    padding: 8px 0px;
+}
+.filter{
+    width: calc(25% - 8px);
+    margin-right: 8px;
 }
