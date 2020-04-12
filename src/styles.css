@@ -2,7 +2,9 @@
 body{
     margin: 0px;
     width: 100%;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    line-height: 1.42857143 !important;
+
 }
 a{
     text-decoration: none !important;

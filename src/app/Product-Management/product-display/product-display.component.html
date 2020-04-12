@@ -1,0 +1,69 @@
+<div id="main-container">
+  <p id="header">Product Details</p>
+  <div id="details-container">
+    <table style="width: 100%;">
+      <tr>
+        <td class="side-headings">Product ID</td>
+        <td class="side-headings"> : &nbsp;</td>
+        <td>{{ product.id }}</td>
+      </tr>
+      <tr>
+        <td class="side-headings cell-1">Product Name</td>
+        <td class="side-headings cell-2"> : &nbsp;</td>
+        <td class="cell-3">{{ product.name }}</td>
+      </tr>
+      <tr>
+        <td class="side-headings">Brand</td>
+        <td class="side-headings"> : &nbsp;</td>
+        <td>{{ product.brand }}</td>
+      </tr>
+      <tr>
+        <td class="side-headings">Gender Group</td>
+        <td class="side-headings"> : &nbsp;</td>
+        <td>{{ product.genderGroup }}</td>
+      </tr>
+      <tr>
+        <td class="side-headings">Category</td>
+        <td class="side-headings"> : &nbsp;</td>
+        <td>{{ product.category }}</td>
+      </tr>
+      <tr>
+        <td class="side-headings">Sub Category</td>
+        <td class="side-headings"> : &nbsp;</td>
+        <td>{{ product.subCategory }}</td>
+      </tr>
+      <tr>
+        <td class="side-headings">Status</td>
+        <td class="side-headings"> : &nbsp;</td>
+        <td>{{ product.status }}</td>
+      </tr>
+    </table>
+    <div id="seperator"></div>
+    <p class="main-side-heading">Images</p>
+    <div id="seperator"></div>
+    <div id="images-container">
+      <img *ngFor="let image of product.images" 
+        [src]="image" alt="Image Not Available">
+    </div>
+    <div id="seperator"></div>
+    <p class="main-side-heading">Available Sizes</p>
+    <div id="seperator"></div>
+    <table style="width: 100%;">
+      <tr>
+        <th>Size Name</th>
+        <th>Available Quantity</th>
+        <th>Price</th>
+        <th>Discount</th>
+        <th>Status</th>
+      </tr>
+      <tr *ngFor="let size of product.getSizeList()">
+        <td>{{ size.sizeName }}</td>
+        <td>{{ size.availableQuantity }}</td>
+        <td>{{ 'Rs. ' + size.price }}</td>
+        <td>{{ size.discount + ' %'}}</td>
+        <td>{{ (size.status == true)? "Active" : "Inactive" }}</td>
+      </tr>
+    </table>
+    <button (click)="onEditDetails()" type="button" class="btn btn-primary">Edit Details</button>
+  </div>
+</div>

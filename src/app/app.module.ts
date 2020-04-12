@@ -2,39 +2,35 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { BodyComponent } from './body/body.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { TableScrollContainerComponent } from './table-scroll-container/table-scroll-container.component';
-import { LiveCountersComponent } from './live-counters/live-counters.component';
-import { SideBarComponent } from './side-bar/side-bar.component';
-import { DashboardContentComponent } from './dashboard-content/dashboard-content.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ProductSearchComponent } from './product-search/product-search.component';
-import { DropdownComponent } from './dropdown/dropdown.component';
-import { ProductDisplayComponent } from './product-display/product-display.component';
-import { ProductEditComponent } from './product-edit/product-edit.component';
+import { HttpClientModule } from '@angular/common/http'
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { ProductModule } from './Product-Management/product.module';
+import { CoreModule } from './Core/core.module'
+import { SharedModule } from './Shared/shared.module';
+
+import { ProductService } from 'src/app/Services/product.service'
+import { DummyServer } from 'src/app/Services/dummy-server.service'
+import { SharedComponentService } from './Services/shared-components.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    BodyComponent,
-    DashboardComponent,
-    TableScrollContainerComponent,
-    LiveCountersComponent,
-    SideBarComponent,
-    DashboardContentComponent,
-    ProductSearchComponent,
-    DropdownComponent,
-    ProductDisplayComponent,
-    ProductEditComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ProductModule,
+    CoreModule,
+    SharedModule,
+    HttpClientModule
   ],
-  providers: [],
+  exports: [],
+  providers: [ProductService, SharedComponentService, DummyServer],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

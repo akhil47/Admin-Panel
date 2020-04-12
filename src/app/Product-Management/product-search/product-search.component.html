@@ -1,0 +1,31 @@
+<div id="main-container">
+  <div id="search-field-container">
+      <input type="text" class="search-field form-control" 
+        name="search-text" placeholder="Enter Product ID or Name">
+      <a><i class="icon fas fa-search"></i></a>
+      <input class="radio" type="radio" name="search-option" value="id" checked>
+        <label>ID</label>
+      <input class="radio" type="radio" name="search-option" value="id">
+        <label>Name</label>
+    <div class="filters-container">
+          <app-dropdown dropdownHeader= "Brand" class="filter"></app-dropdown>
+          <app-dropdown dropdownHeader= "Gender Group" class="filter"></app-dropdown>
+          <app-dropdown dropdownHeader= "Category" class="filter"></app-dropdown>
+          <app-dropdown dropdownHeader= "Sub Category" class="filter"></app-dropdown>
+          <app-dropdown dropdownHeader= "Status" class="filter"></app-dropdown>
+    </div>
+    <div class="filters-container" style="padding-bottom: 0px;">
+      <input placeholder="Size" class="filter-input-field form-control" type="text">
+      <input placeholder="Quantity" class="filter-input-field form-control" type="text">
+      <input placeholder="Min. Price" class="filter-input-field form-control" type="text">
+      <input placeholder="Max. Price" class="filter-input-field form-control" type="text">
+      <input placeholder="Discount" class="filter-input-field form-control" type="text">
+    </div>
+  </div>
+  <div id="search-results-container">
+    <app-table-scroll-container
+      [headerText]="header"
+      [columnHeaders]="columns"
+    ></app-table-scroll-container>
+  </div>
+</div>

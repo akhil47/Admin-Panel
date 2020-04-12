@@ -1,0 +1,53 @@
+#main-container{
+    width: 100%;
+}
+#search-field-container{
+    position: relative;
+    padding: 8px;
+    margin-bottom: 8px;
+    width: 100%;
+    text-align: justify;
+    background-color: rgb(142, 185, 255, 0.1);
+
+}
+.search-field{
+    width: 80%;
+    display: inline-block;
+    padding-right: 48px;
+}
+.icon{
+    position: absolute;
+    top: 18px;
+    left: 765px;
+    font-size: 16px;
+}
+.radio{
+    height: 1.2em;
+    width: 1.2em;
+    margin: 0px;
+    margin-left: 16px;
+    display: inline-block;
+    cursor: pointer;
+}
+label{
+    font-size: 14px;
+    margin: 0px;
+    padding: 4px 4px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.filters-container{
+    padding: 8px 0px;
+    text-align: center;
+}
+.filter{
+    width: calc(20% - 8px);
+    margin-right: 8px;
+}
+.filter-input-field{
+    width: calc(20% - 8px);
+    margin-right: 8px;
+    height: 32px;
+    display: inline-block;
+}

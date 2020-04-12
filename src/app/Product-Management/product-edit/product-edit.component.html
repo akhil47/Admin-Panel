@@ -1,0 +1,93 @@
+<div id="main-container">
+
+<!-- Add Image Popup Section -->
+  <app-popup *ngIf="!isPopupClosed">
+    <i style="cursor: pointer;" (click)="onPopupClose()"class="fa fa-times" id="close-button"></i>
+    <div id="popup-box">
+      <div id="preview-box" *ngIf="showPreview">
+        <p class="box-heading">Image Preview :</p>
+        <img id="preview-image" [src]="imgUrl" alt="&nbsp; &nbsp;Image Not Available">
+      </div>
+      <p class="box-heading">Image URL :</p>
+      <input [(ngModel)]="imgUrl" name="imgUrl" style="display: inline-block;" type="text" class="form-control">
+      <div style="text-align: left;">
+        <button (click)="onAddImage()" class="btn btn-success popup-btns">Add</button>
+        <button (click)="openImagePreview()" class="btn btn-primary popup-btns">Preview</button>
+      </div>
+    </div>
+  </app-popup>
+
+<!-- Reactive New Product Form Section -->
+  <form [formGroup]="product" (ngSubmit)="onSubmit()">
+    <p id="header">Product Details</p>
+    <div id="details-container">
+      <!-- Main Form Contents Section -->
+      <table style="width: 100%;">
+        <tr *ngIf="editMode">
+          <td class="side-headings">Product ID</td>
+          <td class="side-headings"> : &nbsp;</td>
+          <td><input readonly="true" formControlName = "id" type="text" class="form-control"></td>
+        </tr>
+        <tr *ngFor="let control of mainControlNames | keyvalue : returnZero">
+          <td class="side-headings">{{ control.value }}</td>
+          <td class="side-headings"> : &nbsp;</td>
+          <td><input formControlName = "{{ control.key }}" type="text" class="form-control"></td>
+        </tr>
+        <tr>
+          <td class="side-headings">Status</td>
+          <td class="side-headings"> : &nbsp;</td>
+          <td><div style="text-align: justify;">
+            <input formControlName = "status" type="radio" name="status" class="radio" 
+            value="Active" checked>
+            <label class="radio-text">Active</label>
+            <input formControlName = "status" type="radio" name="status" class="radio"
+            value="Inactive">
+            <label class="radio-text">Inactive</label>
+          </div></td>
+        </tr>
+      </table>
+
+      <!-- Images Section -->
+      <div id="seperator"></div>
+      <p class="main-side-heading">Images</p>
+      <div id="seperator"></div>
+      <div id="images-container">
+        <div class="image" *ngFor="let image of getImageControls().controls; let i = index">
+          <img [src]="image.value" alt="Image Not Available">
+          <a (click)="onRemoveImage(i)" class="image-remove">Remove</a>
+        </div>
+        <div (click)="onOpenPopup()" class="image" id="new-image">
+          +<br><p style="margin: 0px; font-size: 14px; font-weight: bold;">New image</p>
+        </div>
+      </div>
+
+      <!-- Size List Section -->
+      <div id="seperator"></div>
+      <p class="main-side-heading">Available Sizes</p>
+      <div id="seperator"></div>
+      <div id="size-list-container" formArrayName="sizeList" style="width: 100%;">
+        <div *ngFor="let header of sizeListHeaders" class="size-headers main-side-heading">{{ header }}</div>
+        <div id="seperator"></div>
+        <div id="input-fields-container" *ngFor="let size of getSizeControls().controls; let i = index">
+          <div [formGroup]="size">
+            <div *ngFor = "let control of sizeControlNames" class="size-fields">
+              <input formControlName = "{{ control }}" type="text" class="form-control"></div>
+            <div class="size-fields" style="padding: 12px 0px;">
+              <div class="radio-button-container">
+                <input formControlName = "status" type="radio"  class="radio" value="Active" checked>
+                <label class="radio-text">Active</label>
+                <input formControlName = "status" type="radio"  class="radio" value="Inactive">
+                <label class="radio-text">Inactive</label>
+              </div>
+              <button class="remove-btn" (click)="removeSizeControl(i)" type="button" class="btn btn-danger">X</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a (click)="addSizeControl()" id="add-size">+ Add new Size</a>
+      <button *ngIf="!editMode" type="submit" class="btn btn-primary">Add Product</button>
+      <button (click)="onSaveChanges()" style="margin-right: 8px;" *ngIf="editMode" type="button" class="btn btn-success">Save Changes</button>
+      <button *ngIf="editMode" type="button" class="btn btn-danger">Delete Product</button>
+    </div>
+  </form>
+</div>

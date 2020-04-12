@@ -1,0 +1,28 @@
+<div id="main-container">
+  <a (click)="expandProductManagement()">Product Management &nbsp;<span class="fas fa-caret-down"></span></a>
+  <div [ngClass]="{
+    'expand': isExpandedProductManagement
+  }" class="menu-expansion">
+    <a routerLink="product/new" class="menu-item-text">Add Product</a>
+    <a routerLink = 'product-search' class="menu-item-text">Search Products</a>
+    <a routerLink = "out-of-stock" class="menu-item-text">Out of stock</a>
+  </div>
+  <a (click)="expandCatalogManagement()">Catalog Management &nbsp;<span class="fas fa-caret-down"></span></a>
+  <div [ngClass]="{
+    'expand': isExpandedCatalogManagement
+  }" class="menu-expansion">
+    <a class="menu-item-text">Add Brand</a>
+    <a routerLink="product-search" class="menu-item-text">Add Category</a>
+    <a class="menu-item-text">Manage Brands</a>
+    <a class="menu-item-text">Manage Categories</a>
+  </div>
+  <a (click)="expandOrdersManagement()">Orders Management &nbsp;<span class="fas fa-caret-down"></span></a>
+  <div [ngClass]="{
+    'expand': isExpandedOrdersManagement
+  }" class="menu-expansion">
+    <a class="menu-item-text">Pending Orders</a>
+    <a class="menu-item-text">Manage Orders</a>
+    <a class="menu-item-text">Delivery Locations</a>
+  </div>
+  <a (click)="openCustomerSearch()">Customer Management</a>
+</div>

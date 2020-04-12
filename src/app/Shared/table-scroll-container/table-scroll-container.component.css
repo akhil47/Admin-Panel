@@ -1,0 +1,62 @@
+#main-container{
+    width: 100%;
+}
+/* ::-webkit-scrollbar {
+    height: 0px;
+    width: 0px;
+    background: transparent;
+} */
+#table-header{
+    width: 100%;
+    padding: 8px;
+    padding-bottom: 0px;
+    background-color: #8eb9ff;
+}
+#header-text{
+    text-align: left;
+    margin: 0px;
+    font-size: 18px;
+    font-weight: 600;
+}
+#table-column-headers{
+    text-align: center;
+}
+#seperator{
+    height: 1px;
+    margin-top: 8px;
+    width: 100%;
+    background: grey;
+}
+.column-header-text{
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px;
+    margin: 0px;
+    display: inline-block;
+}
+
+#table-content{
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: calc(512px - 88px);
+    background-color: rgb(142, 185, 255, 0.1);
+    padding-left: 8px;
+}
+::-webkit-scrollbar {
+    height: 0px;
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+.order-row{
+    width: 100%;
+    text-align: center;
+}
+.column-text{
+    font-size: 14px;
+    padding-right: 4px;
+    margin: 0px;
+    display: inline-block;
+    word-wrap: break-word;
+    vertical-align: top;
+}

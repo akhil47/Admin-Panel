@@ -1,0 +1,29 @@
+#main-container{
+    width: 100%;
+}
+a{
+    background-color: #8eb9ff;
+    display: block;
+    padding: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+}
+span{
+    font-size: 12px;
+}
+.menu-expansion{
+    display: block;
+    background-color: rgb(142, 185, 255, 0.1);
+    overflow: hidden;
+    padding: 0px 8px;
+    transition: 0.5s all;
+    max-height: 0px;
+}
+.expand{
+    max-height: 256px;
+}
+.menu-item-text{
+    background: none;
+    font-weight: normal;
+}

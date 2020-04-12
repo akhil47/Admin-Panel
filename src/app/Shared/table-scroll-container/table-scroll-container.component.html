@@ -1,0 +1,32 @@
+<div id="main-container">
+  <div id="table-header">
+    <p id="header-text">{{ headerText }}</p>
+    <div id="seperator"></div>
+    <div id="table-column-headers">
+      <p [ngStyle]="{ 'width': columnWidth }" 
+        class="column-header-text"
+        *ngFor="let header of columnHeaders"
+        >
+        {{ header }}
+      </p>
+    </div>
+  </div>
+  <div id="table-content">
+    <div class="order-row" *ngFor="let _ of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]">
+        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">1234567891234560</p>
+        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">Tommy Hilfiger</p>
+        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">Men</p>
+        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">Cloting</p>
+        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">Casual Shirts</p>
+        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">S</p>
+        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">10</p>
+        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">Rs. 10,200</p>
+        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">20%</p>
+        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">Active</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- pending-orders-content = table-content-->
+<!-- pending-orders-header = table-header -->
