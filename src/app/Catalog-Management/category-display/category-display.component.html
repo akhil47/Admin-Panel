@@ -1,0 +1,28 @@
+<div id="main-container">
+    <p id="header">Brand Details</p>
+    <div id="details-container">
+      <table style="width: 100%;">
+        <tr>
+          <td class="side-headings cell-1">Category Name</td>
+          <td class="side-headings cell-2"> : &nbsp;</td>
+          <td class="cell-3">{{ 'Clothing' }}</td>
+        </tr>
+        <tr>
+          <td class="side-headings">Status</td>
+          <td class="side-headings"> : &nbsp;</td>
+          <td>{{ 'Active' }}</td>
+        </tr>
+      </table>
+      <div id="seperator"></div>
+      <p class="main-side-heading">Sub Categories</p>
+      <div id="seperator"></div>
+      <table style="width: 100%; font-size: 14px;">
+        <tr *ngFor="let subCategory of category['sub-categories']; let i = index">
+          <td class="side-headings cell-1">{{ 'Sub Category  ' + (i + 1) }}</td>
+          <td class="side-headings cell-2"> : &nbsp;</td>
+          <td class="cell-3">{{ subCategory }}</td>
+        </tr>
+      </table>
+      <button (click)="onEditDetails()" type="button" class="btn btn-primary">Edit Details</button>
+    </div>
+  </div>

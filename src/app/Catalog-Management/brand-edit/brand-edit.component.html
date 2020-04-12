@@ -1,0 +1,65 @@
+<div id="main-container">
+
+    <!-- Add Image Popup Section -->
+      <app-popup *ngIf="!isPopupClosed">
+        <i style="cursor: pointer;" (click)="onPopupClose()"class="fa fa-times" id="close-button"></i>
+        <div id="popup-box">
+          <div id="preview-box" *ngIf="showPreview">
+            <p class="box-heading">Image Preview :</p>
+            <img id="preview-image" [src]="imgUrl" alt="&nbsp; &nbsp;Image Not Available">
+          </div>
+          <p class="box-heading">Image URL :</p>
+          <input [(ngModel)]="imgUrl" name="imgUrl" style="display: inline-block;" type="text" class="form-control">
+          <div style="text-align: left;">
+            <button (click)="onAddImage()" class="btn btn-success popup-btns">Add</button>
+            <button (click)="openImagePreview()" class="btn btn-primary popup-btns">Preview</button>
+          </div>
+        </div>
+      </app-popup>
+    
+    <!-- Reactive New Product Form Section -->
+      <form [formGroup]="brand" (ngSubmit)="onSubmit()">
+        <p id="header">Brand Details</p>
+        <div id="details-container">
+          <!-- Main Form Contents Section -->
+          <table style="width: 100%;">
+            <tr>
+              <td class="side-headings">Brand Name</td>
+              <td class="side-headings"> : &nbsp;</td>
+              <td><input [readonly]="editMode" formControlName = "name" type="text" class="form-control"></td>
+            </tr>
+            <tr>
+              <td class="side-headings">Status</td>
+              <td class="side-headings"> : &nbsp;</td>
+              <td><div style="text-align: justify;">
+                <input formControlName = "status" type="radio" name="status" class="radio" 
+                value="Active" checked>
+                <label class="radio-text">Active</label>
+                <input formControlName = "status" type="radio" name="status" class="radio"
+                value="Inactive">
+                <label class="radio-text">Inactive</label>
+              </div></td>
+            </tr>
+          </table>
+    
+          <!-- Images Section -->
+          <div id="seperator"></div>
+          <p class="main-side-heading">Image</p>
+          <div id="seperator"></div>
+          <div id="images-container">
+            <div *ngIf="!allowNewImage" class="image">
+              <img [src]="brand.get('image').value" alt="Image Not Available">
+              <a (click)="onRemoveImage()" class="image-remove">Remove</a>
+            </div>
+            <div *ngIf="allowNewImage" (click)="onOpenPopup()" class="image" id="new-image">
+              +<br><p style="margin: 0px; font-size: 14px; font-weight: bold;">Add image</p>
+            </div>
+          </div>
+  
+          <div id="seperator"></div>
+          <button *ngIf="!editMode" type="submit" style="margin-top: 8px" class="btn btn-primary">Add Product</button>
+          <button (click)="onSaveChanges()" style="margin-right: 8px; margin-top: 8px" *ngIf="editMode" type="button" class="btn btn-success">Save Changes</button>
+          <button *ngIf="editMode" type="button" style="margin-top: 8px" class="btn btn-danger">Delete Product</button>
+        </div>
+      </form>
+    </div>
