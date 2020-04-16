@@ -1,0 +1,84 @@
+<div id="main-container">
+    <div class="details-container">
+        <p class="heading-text">Order Details</p>
+        <div class="seperator"></div>
+        <table style="width: 100%;">
+            <tr>
+                <td class="cell-1">Order Status</td>
+                <td class="cell-2">:</td>
+                <td class="cell-3">
+                    <input class="radio-btn" type="radio" name="order-status" value="pending">
+                    <label>&nbsp;Pending&nbsp;&nbsp;</label>
+                    <input class="radio-btn" type="radio" name="order-status" value="shipped">
+                    <label>&nbsp;Shipped&nbsp;&nbsp;</label>
+                    <input class="radio-btn" type="radio" name="order-status" value="delivered">
+                    <label>&nbsp;Delivered&nbsp;&nbsp;</label>
+                    <input class="radio-btn" type="radio" name="order-status" value="cancelled">
+                    <label>&nbsp;Cancelled&nbsp;&nbsp;</label>
+                    <input class="radio-btn" type="radio" name="order-status" value="return-initiated">
+                    <label>&nbsp;Return Initiated&nbsp;&nbsp;</label>
+                    <input class="radio-btn" type="radio" name="order-status" value="return-recieved">
+                    <label>&nbsp;Return Recieved&nbsp;&nbsp;</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="cell-1">Refund Status</td>
+                <td class="cell-2">:</td>
+                <td class="cell-3">
+                    <input class="radio-btn" type="radio" name="refund-status" value="initiated">
+                    <label>&nbsp;Initiated&nbsp;&nbsp;</label>
+                    <input class="radio-btn" type="radio" name="refund-status" value="completed">
+                    <label>&nbsp;Completed&nbsp;&nbsp;</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="cell-1">Payment Status</td>
+                <td class="cell-2">:</td>
+                <td class="cell-3">
+                    <input class="radio-btn" type="radio" name="payment-status" value="pending">
+                    <label>&nbsp;Pending&nbsp;&nbsp;</label>
+                    <input class="radio-btn" type="radio" name="payment-status" value="completed">
+                    <label>&nbsp;Completed&nbsp;&nbsp;</label>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="details-container">
+        <p class="heading-text">Order Timeline</p>
+        <div class="seperator"></div>
+        <table style="width: 100%;">
+            <tr>
+                <td class="cell-1">Shipped On</td>
+                <td class="cell-2">:</td>
+                <td class="cell-3">
+                    <input type="text" class="edit-fields form-control">
+                </td>
+            </tr>
+            <tr>
+                <td class="cell-1">Delivered On</td>
+                <td class="cell-2">:</td>
+                <td class="cell-3">
+                    <input type="text" class="edit-fields form-control">
+                </td>
+            </tr>
+            <tr>
+                <td class="cell-1">Cancelled On</td>
+                <td class="cell-2">:</td>
+                <td class="cell-3">
+                    <input type="text" class="edit-fields form-control">
+                </td>
+            </tr>
+            <tr>
+                <td class="cell-1">Refunded On</td>
+                <td class="cell-2">:</td>
+                <td class="cell-3">
+                    <input type="text" class="edit-fields form-control">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="details-container">
+        <button type="submit" style="margin-right: 8px;" class="btn btn-success">Save</button>
+        <button type="button" class="btn btn-danger">Cancel</button>
+    </div>
+</div>

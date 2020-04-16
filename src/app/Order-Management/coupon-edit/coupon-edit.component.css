@@ -1,0 +1,42 @@
+#main-container{
+    width: 100%;
+    background-color: rgb(142, 185, 255, 0.1);
+}
+.details-container{
+    width: 100%;
+    padding: 8px;
+    text-align: left;
+}
+.header-text{
+    font-size: 16px;
+    font-weight: 600;
+    background: #8eb9ff;
+    margin-bottom: 0px;
+    padding: 8px;
+    text-align: left;
+}
+.form-container{
+    width: 100%;
+    font-size: 16px;
+}
+.table-row{
+    display: block;
+    width: 100%;
+    padding: 8px 0px;
+}
+.cell-1{
+    display: inline-block;
+    width: 25%;
+    font-weight: 600;
+}
+.cell-2{
+    display: inline-block;
+    width: 5%;
+}
+.cell-3{
+    display: inline-block;
+    width: 70%;
+}
+.form-btn{
+    margin-right: 8px;
+}

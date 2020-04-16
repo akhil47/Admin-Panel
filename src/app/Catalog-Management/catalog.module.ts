@@ -8,6 +8,8 @@ import { BrandDisplayComponent } from './brand-display/brand-display.component';
 import { BrandEditComponent } from './brand-edit/brand-edit.component';
 import { CategoryDisplayComponent } from './category-display/category-display.component';
 import { CategoryEditComponent } from './category-edit/category-edit.component';
+import { BrandSearchComponent } from './brand-search/brand-search.component';
+import { CategorySearchComponent } from './category-search/category-search.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { CategoryEditComponent } from './category-edit/category-edit.component';
         BrandDisplayComponent,
         BrandEditComponent,
         CategoryDisplayComponent,
-        CategoryEditComponent
+        CategoryEditComponent,
+        BrandSearchComponent,
+        CategorySearchComponent
     ],
     imports: [
         CommonModule,

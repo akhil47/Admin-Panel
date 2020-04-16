@@ -69,14 +69,14 @@ export class ProductService{
             
     }
     sendPostRequest(url: string, parameters: {}){
-        return this.http.post('https://admin-panel-56f3c.firebaseio.com/products.json', parameters)
+        return this.http.post('https://admin-panel-37f18.firebaseio.com/products.json', parameters)
         //Returned observable must be subscribed
     }
     sendGetRequest(){
         // Http request using query parameters and return response would be "Array of Objects" in JSON
         // which should be parsed by productToJSOn and sizeToJSON
         // Then saved into produts object.
-        this.http.get('https://admin-panel-56f3c.firebaseio.com/products.json').subscribe(
+        this.http.get('https://admin-panel-37f18.firebaseio.com/products.json').subscribe(
             (response)=>{
                 for(var i in response){
                     var temp =  this.JSONToProduct(response[i])
@@ -91,7 +91,7 @@ export class ProductService{
     }
     addNewProduct(product){
         // Change URL Later and product would be JSON object outputed by form
-        this.sendPostRequest('https://admin-panel-56f3c.firebaseio.com/products.json', product).subscribe(
+        this.sendPostRequest('https://admin-panel-37f18.firebaseio.com/products.json', product).subscribe(
             (response) => {
 
             }

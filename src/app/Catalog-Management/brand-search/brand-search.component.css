@@ -1,0 +1,21 @@
+#main-container{
+    width: 100%;
+}
+#search-field-container{
+    position: relative;
+    padding: 8px;
+    margin-bottom: 8px;
+    width: 100%;
+    text-align: justify;
+    background-color: rgb(142, 185, 255, 0.1);
+
+}
+.search-field{
+    padding-right: 48px;
+}
+.icon{
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    font-size: 16px;
+}

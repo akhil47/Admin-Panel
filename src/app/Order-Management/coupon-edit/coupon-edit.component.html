@@ -1,0 +1,59 @@
+<div id="main-container">
+    <p class="header-text">Coupon Details</p>
+    <div class="details-container">
+        <table class="form-container">
+            <tr class="table-row">
+                <td class="cell-1">Coupon Code</td>
+                <td class="cell-2">:</td>
+                <td class="cell-3">
+                    <input type="text" class="form-control">
+                </td>
+            </tr>
+            <tr class="table-row">
+                <td class="cell-1">Discount(%)</td>
+                <td class="cell-2">:</td>
+                <td class="cell-3">
+                    <input type="text" class="form-control">
+                </td>
+            </tr>
+            <tr class="table-row">
+                <td class="cell-1">Max Discount(Rs.)</td>
+                <td class="cell-2">:</td>
+                <td class="cell-3">
+                    <input type="text" class="form-control">
+                </td>
+            </tr>
+            <tr class="table-row">
+                <td class="cell-1">Minimum Cart Value</td>
+                <td class="cell-2">:</td>
+                <td class="cell-3">
+                    <input type="text" class="form-control">
+                </td>
+            </tr>
+            <tr class="table-row">
+                <td class="cell-1">Valid From</td>
+                <td class="cell-2">:</td>
+                <td class="cell-3">
+                    <input type="text" class="form-control">
+                </td>
+            </tr>
+            <tr class="table-row">
+                <td class="cell-1">Valid Till</td>
+                <td class="cell-2">:</td>
+                <td class="cell-3">
+                    <input type="text" class="form-control">
+                </td>
+            </tr>
+            <tr class="table-row">
+                <td class="cell-1">Description</td>
+                <td class="cell-2">:</td>
+                <td class="cell-3">
+                    <textarea cols="15" rows="5" class="form-control"></textarea>
+                </td>
+            </tr>
+        </table>
+        <button *ngIf="!editMode" type="submit" class="form-btn btn btn-success">Add Coupon</button>
+        <button *ngIf="editMode" type="button" class="form-btn btn btn-success">Save</button>
+        <button *ngIf="editMode" type="button" class="form-btn btn btn-danger">Cancel</button>
+    </div>
+</div>

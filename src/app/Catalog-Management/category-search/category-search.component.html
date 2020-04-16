@@ -1,0 +1,15 @@
+<div id="main-container">
+    <div id="search-field-container">
+        <input type="text" class="search-field form-control" 
+          name="search-text" placeholder="Enter Category Name or Prefix">
+          <input type="text" class="search-field form-control" 
+          name="search-text" placeholder="Enter Sub Category Name or Prefix">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+    <div id="search-results-container">
+      <app-table-scroll-container
+        [headerText]="header"
+        [columnHeaders]="columns"
+      ></app-table-scroll-container>
+    </div>
+  </div>

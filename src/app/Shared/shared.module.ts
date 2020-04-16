@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
     declarations:[
         TableScrollContainerComponent,
         PopupComponent,
-        DropdownComponent
+        DropdownComponent,
     ],
     imports: [
         CommonModule

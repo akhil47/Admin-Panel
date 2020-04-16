@@ -11,18 +11,19 @@
   <div [ngClass]="{
     'expand': isExpandedCatalogManagement
   }" class="menu-expansion">
-    <a class="menu-item-text">Add Brand</a>
-    <a routerLink="product-search" class="menu-item-text">Add Category</a>
-    <a class="menu-item-text">Manage Brands</a>
-    <a class="menu-item-text">Manage Categories</a>
+    <a routerLink="brand/new-brand" class="menu-item-text">Add Brand</a>
+    <a routerLink="category/new-category" class="menu-item-text">Add Category</a>
+    <a routerLink="brand-search" class="menu-item-text">Search Brands</a>
+    <a routerLink="category-search" class="menu-item-text">Search Categories</a>
   </div>
   <a (click)="expandOrdersManagement()">Orders Management &nbsp;<span class="fas fa-caret-down"></span></a>
   <div [ngClass]="{
     'expand': isExpandedOrdersManagement
   }" class="menu-expansion">
-    <a class="menu-item-text">Pending Orders</a>
-    <a class="menu-item-text">Manage Orders</a>
+    <a routerLink="coupon/new-coupon"class="menu-item-text">Add Coupon</a>
+    <a class="menu-item-text">Search Coupons</a>
+    <a routerLink="order-search" class="menu-item-text">Search Orders</a>
     <a class="menu-item-text">Delivery Locations</a>
   </div>
-  <a (click)="openCustomerSearch()">Customer Management</a>
+  <a routerLink="customer-search">Customer Management</a>
 </div>

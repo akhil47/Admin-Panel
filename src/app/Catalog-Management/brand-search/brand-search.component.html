@@ -1,0 +1,13 @@
+<div id="main-container">
+    <div id="search-field-container">
+        <input type="text" class="search-field form-control" 
+          name="search-text" placeholder="Enter Brand Name or Prefix">
+        <a><i class="icon fas fa-search"></i></a>
+    </div>
+    <div id="search-results-container">
+      <app-table-scroll-container
+        [headerText]="header"
+        [columnHeaders]="columns"
+      ></app-table-scroll-container>
+    </div>
+  </div>

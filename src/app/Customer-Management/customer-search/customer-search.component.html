@@ -1,0 +1,23 @@
+<div id="main-container">
+    <div class="container" style="padding-bottom: 0px;">
+        <input type="text" class="search-field form-control" 
+            placeholder="Enter Coupon ID or Coupon code">
+        <button style="margin-left: 8px; vertical-align: top;" class="btn btn-primary">Search</button>
+    </div>
+    <div class="container">
+        <input type="radio" name="search-type" class="search-radio" value="id">
+        <label class="search-radio">Customer ID</label>
+        <input type="radio" name="search-type" class="search-radio" value="name">
+        <label class="search-radio">Name</label>
+        <input type="radio" name="search-type" class="search-radio" value="email">
+        <label class="search-radio">E-mail</label>
+        <input type="radio" name="search-type" class="search-radio" value="mobile">
+        <label class="search-radio">Mobile</label>
+    </div>
+    <div class="container">
+        <app-table-scroll-container
+        [headerText]="header"
+        [columnHeaders]="columns"
+        ></app-table-scroll-container>
+    </div>
+</div>
