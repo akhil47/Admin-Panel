@@ -13,10 +13,10 @@ export class ProductService{
     ngOnInit(){
     }
 
-    JSONToProduct(productJSON){
+    JSONToProduct(id: string, productJSON: Object){
         var product = new Product()
         product.name = productJSON['name']
-        product.id = productJSON['id']
+        product.id = id
         product.description = productJSON['description']
         product.images = productJSON['images']
         product.genderGroup = productJSON['gender-group']
@@ -68,8 +68,8 @@ export class ProductService{
             )
             
     }
-    sendPostRequest(url: string, parameters: {}){
-        return this.http.post('https://admin-panel-37f18.firebaseio.com/products.json', parameters)
+    sendPostRequest(url: string, product: Object, parameters?: {}){
+        return this.http.post('https://admin-panel-37f18.firebaseio.com/products.json', product)
         //Returned observable must be subscribed
     }
     sendGetRequest(){
@@ -78,10 +78,11 @@ export class ProductService{
         // Then saved into produts object.
         this.http.get('https://admin-panel-37f18.firebaseio.com/products.json').subscribe(
             (response)=>{
-                for(var i in response){
-                    var temp =  this.JSONToProduct(response[i])
-                    this.products[temp.id] = temp;
+                for(var id in response){
+                    var temp =  this.JSONToProduct(id, response[id])
+                    this.products[id] = temp;
                 }
+                console.log(this.products)
             }
         )
         

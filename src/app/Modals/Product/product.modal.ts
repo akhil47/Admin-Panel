@@ -2,7 +2,7 @@ import { Size } from './size.modal';
 
 export class Product{
     name: string
-    id: number
+    id: string
     description: string
     images: string[]
     brand: string

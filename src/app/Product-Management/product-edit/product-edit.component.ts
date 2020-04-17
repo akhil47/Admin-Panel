@@ -118,6 +118,11 @@ export class ProductEditComponent implements OnInit {
     return 0;
   }
   onSubmit(){
+    this.productService.sendPostRequest('',JSON.stringify(this.product.value)).subscribe(
+      (response)=> {
+        console.log(response)
+      }
+    )
     console.log(JSON.stringify(this.product.value));
   }
 
@@ -137,8 +142,7 @@ export class ProductEditComponent implements OnInit {
   test(){
     this.productService.sendGetRequest()
     setTimeout(() => {
-      console.log(this.productService.products)
-      this.editModeProduct = this.productService.getProductByID(29785666)
+      this.editModeProduct = this.productService.getProductByID('-M55l493sPeoM3-cKyEy')
       this.editProduct()
     }, 2000);
     
@@ -163,7 +167,7 @@ export class ProductEditComponent implements OnInit {
     }
   }
   onSaveChanges(){
-    console.log(this.productService.JSONToProduct(this.product.value))
+    // console.log(this.productService.JSONToProduct(this.product.value))
     // Update this back to products array in service and from there to database
     // after update use subject to publish update to all other components
 
