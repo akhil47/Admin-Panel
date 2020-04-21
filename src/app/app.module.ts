@@ -19,6 +19,7 @@ import { SharedComponentService } from './Services/shared-components.service';
 import { CatalogService } from './Services/catalog.service';
 import { OrderModule } from './Order-Management/order.module';
 import { CustomerSearchComponent } from './Customer-Management/customer-search/customer-search.component';
+import { HttpService } from './Services/http.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { CustomerSearchComponent } from './Customer-Management/customer-search/c
     HttpClientModule
   ],
   exports: [],
-  providers: [ProductService, CatalogService, SharedComponentService, DummyServer],
+  providers: [ProductService, CatalogService, SharedComponentService, DummyServer, HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -39,7 +39,7 @@ export class BrandEditComponent implements OnInit {
     })
     if(this.editMode) this.editBrand()
   }
-  onSubmit(){
+  onAddBrand(){
     console.log(this.brand.value)
   }
 
@@ -83,5 +83,9 @@ export class BrandEditComponent implements OnInit {
   }
   onSaveChanges(){
     console.log(this.brand.value)
+    this.catalogService.updateBrand(this.brandName, this.brand.value)
+  }
+  onDeleteBrand(){
+    this.catalogService.deleteBrand(this.brandName)
   }
 }

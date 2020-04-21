@@ -34,8 +34,9 @@ export class CategoryEditComponent implements OnInit {
     })
     if(this.editMode) this.editCategory()
   }
-  onSubmit(){
+  onAddCategory(){
     console.log(this.category.value)
+    this.catalogService.addNewCategory(this.category.value)
   }
 
   // Edit Mode Related Functions
@@ -64,8 +65,14 @@ export class CategoryEditComponent implements OnInit {
   onRemoveSubCategory(index){
     (<FormArray>this.category.get('sub-categories')).removeAt(index)
   }
+
+
+  // Complete Below Functions
+
   onSaveChanges(){
     console.log(this.category.value)
+  }
+  onDeleteCategory(){
   }
 
 }

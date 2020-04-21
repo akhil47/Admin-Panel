@@ -4,6 +4,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { ProductService } from 'src/app/Services/product.service';
 import { Product } from 'src/app/Modals/Product/product.modal';
 import { Size } from 'src/app/Modals/Product/size.modal';
+import { HttpService } from 'src/app/Services/http.service';
 
 @Component({
   selector: 'app-product-edit',
@@ -54,7 +55,7 @@ export class ProductEditComponent implements OnInit {
     this.route.params.subscribe((params: Params)=>{
       if(params['id'] != null) this.editMode = true;
       else this.editMode = false;
-      this.productID = +params['id']
+      this.productID = params['id']
     })
     if(this.editMode) this.test()
   }
@@ -117,7 +118,9 @@ export class ProductEditComponent implements OnInit {
   returnZero(){
     return 0;
   }
-  onSubmit(){
+  onAddProduct(){
+    this.productService.addNewProduct(JSON.stringify(this.product.value))
+    // Below Code is temporary firebase connection willl be removed later
     this.productService.sendPostRequest('',JSON.stringify(this.product.value)).subscribe(
       (response)=> {
         console.log(response)
@@ -167,12 +170,13 @@ export class ProductEditComponent implements OnInit {
     }
   }
   onSaveChanges(){
-    // console.log(this.productService.JSONToProduct(this.product.value))
+    this.productService.updateProduct(this.productID, this.product.value)
     // Update this back to products array in service and from there to database
     // after update use subject to publish update to all other components
-
   }
-
-
-
+  onDeleteProduct(){
+    this.productService.deleteProduct(this.productID)
+    // Update this back to products array in service and from there to database
+    // after update use subject to publish update to all other components
+  }
 }

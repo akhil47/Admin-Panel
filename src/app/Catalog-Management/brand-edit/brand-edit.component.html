@@ -18,7 +18,7 @@
       </app-popup>
     
     <!-- Reactive New Product Form Section -->
-      <form [formGroup]="brand" (ngSubmit)="onSubmit()">
+      <form [formGroup]="brand" (ngSubmit)="onAddBrand()">
         <p id="header">Brand Details</p>
         <div id="details-container">
           <!-- Main Form Contents Section -->
@@ -57,9 +57,9 @@
           </div>
   
           <div id="seperator"></div>
-          <button *ngIf="!editMode" type="submit" style="margin-top: 8px" class="btn btn-primary">Add Product</button>
+          <button *ngIf="!editMode" type="submit" style="margin-top: 8px" class="btn btn-primary">Add Brand</button>
           <button (click)="onSaveChanges()" style="margin-right: 8px; margin-top: 8px" *ngIf="editMode" type="button" class="btn btn-success">Save Changes</button>
-          <button *ngIf="editMode" type="button" style="margin-top: 8px" class="btn btn-danger">Delete Product</button>
+          <button (click)="onDeleteBrand()" *ngIf="editMode" type="button" style="margin-top: 8px" class="btn btn-danger">Delete Brand</button>
         </div>
       </form>
     </div>

@@ -1,12 +1,14 @@
-import { OnInit } from '@angular/core';
+import { OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Brand } from '../Modals/Product/brand.modal';
 import { Category } from '../Modals/Product/category.modal';
+import { HttpService } from './http.service';
 
+@Injectable()
 export class CatalogService{
     brands = {}
     categories = {}
-    constructor(private http: HttpClient){
+    constructor(private http: HttpClient, private httpService: HttpService){
         this.sendGetRequest()
     }
     ngOnInit(){
@@ -57,5 +59,57 @@ export class CatalogService{
         console.log(this.categories)
         return this.categories[name]
     }
+
+    // Http Functions of Brand
+
+    addNewBrand(brand){
+        this.brands[brand['name']] = brand  // Adding Locally
+        this.httpService.addBrand(brand)    // Adding in database
+    }
+    updateBrand(name, brand){
+        // Updating locally
+        var temp: Brand = this.JSONToBrand(brand)
+        this.brands[temp.name] = temp
+
+        // Updating in database
+        this.httpService.updateBrand(JSON.stringify(brand))
+    }
+    deleteBrand(name){
+        // Write code to delete Locally
+        this.httpService.deleteBrand(name) // Deleting in database
+    }
+    searchBrands(pattern){
+        this.httpService.fetchBrands(pattern)
+    }
+
+    // Http Functions of Category
+
+    addNewCategory(category){
+        // Adding Locally
+        this.categories[category.value['name']] = this.JSONToCategory(category) 
+        // Adding in Database
+        this.httpService.addCategory(JSON.stringify(category))
+    }
+    updateCategory(name, category, subCategories: string[]){
+        // Editing category name and sub categories name is not allowed
+        // Only new sub categories can be added and Active inactive toggle can be done
+        // Updating Locally
+        this.categories[category.value['name']] = this.JSONToCategory(category)
+        // Updating in database
+        this.httpService.updateCategory(JSON.stringify(category), subCategories)
+    }
+    deleteCategory(categoryName){
+        // To delete a category all its subcategories and products
+        // related to them must be deleted first then category is deleted
+
+        // Deleting locally. After deleting a category
+        // clear products data in product service and refetch from database.
+        delete this.categories[categoryName]
+
+        // Deleting in database
+        this.httpService.deleteCategory(categoryName)
+
+    }
+
 
 }

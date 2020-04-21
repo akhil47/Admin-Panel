@@ -18,7 +18,7 @@
   </app-popup>
 
 <!-- Reactive New Product Form Section -->
-  <form [formGroup]="product" (ngSubmit)="onSubmit()">
+  <form [formGroup]="product" (ngSubmit)="onAddProduct()">
     <p id="header">Product Details</p>
     <div id="details-container">
       <!-- Main Form Contents Section -->
@@ -87,7 +87,7 @@
       <a (click)="addSizeControl()" id="add-size">+ Add new Size</a>
       <button *ngIf="!editMode" type="submit" class="btn btn-primary">Add Product</button>
       <button (click)="onSaveChanges()" style="margin-right: 8px;" *ngIf="editMode" type="button" class="btn btn-success">Save Changes</button>
-      <button *ngIf="editMode" type="button" class="btn btn-danger">Delete Product</button>
+      <button (click)="onDeleteProduct()" *ngIf="editMode" type="button" class="btn btn-danger">Delete Product</button>
     </div>
   </form>
 </div>
