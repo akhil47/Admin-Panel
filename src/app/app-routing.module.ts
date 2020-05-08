@@ -19,35 +19,53 @@ import { CouponEditComponent } from './Order-Management/coupon-edit/coupon-edit.
 import { CouponDisplayComponent } from './Order-Management/coupon-display/coupon-display.component';
 import { CouponSearchComponent } from './Order-Management/coupon-search/coupon-search.component';
 import { CustomerSearchComponent } from './Customer-Management/customer-search/customer-search.component';
+import { EditDeliveryLocationComponent } from './Order-Management/edit-delivery-location/edit-delivery-location.component';
+import { DeliveryLocationDisplayComponent } from './Order-Management/delivery-location-display/delivery-location-display.component';
+import { DeliveryLocationSearchComponent } from './Order-Management/delivery-location-search/delivery-location-search.component';
+import { LoginComponent } from './Core/login/login.component';
+import { PanelComponent } from './Core/panel/panel.component';
+import { ChangePasswordComponent } from './Core/change-password/change-password.component';
+import { CustomerDisplayComponent } from './Customer-Management/customer-display/customer-display.component';
 
 
 const appRoutes = [
-    {path: '', component: DashboardContentComponent},
-    {path: 'product-search', component: ProductSearchComponent},
-    {path: 'product/new', component: ProductEditComponent},
-    {path: 'product/:id', component: ProductDisplayComponent},
-    {path: 'product/:id/edit', component: ProductEditComponent},
-    {path: 'out-of-stock', component: OutOfStockComponent},
+    {path: '', component: PanelComponent, children: [
+        {path: '', component: DashboardContentComponent},
+        {path: 'change-password', component: ChangePasswordComponent},
+        
+        {path: 'product-search', component: ProductSearchComponent},
+        {path: 'product/new', component: ProductEditComponent},
+        {path: 'product/:id', component: ProductDisplayComponent},
+        {path: 'product/:id/edit', component: ProductEditComponent},
+        {path: 'out-of-stock', component: OutOfStockComponent},
 
-    {path: 'brand/new-brand', component: BrandEditComponent},
-    {path: 'brand/:name', component: BrandDisplayComponent},
-    {path: 'brand/:name/edit', component: BrandEditComponent},
-    {path: 'category/new-category', component: CategoryEditComponent},
-    {path: 'category/:name', component: CategoryDisplayComponent},
-    {path: 'category/:name/edit', component: CategoryEditComponent},
-    {path: 'brand-search', component: BrandSearchComponent},
-    {path: 'category-search', component: CategorySearchComponent},
+        {path: 'brand/new-brand', component: BrandEditComponent},
+        {path: 'brand/:name', component: BrandDisplayComponent},
+        {path: 'brand/:name/edit', component: BrandEditComponent},
+        {path: 'category/new-category', component: CategoryEditComponent},
+        {path: 'category/:name', component: CategoryDisplayComponent},
+        {path: 'category/:name/edit', component: CategoryEditComponent},
+        {path: 'brand-search', component: BrandSearchComponent},
+        {path: 'category-search', component: CategorySearchComponent},
 
-    {path: 'order-search', component: OrderSearchComponent},
-    {path: 'order/:id', component: OrderDisplayComponent},
-    {path: 'order/:id/edit', component: OrderEditComponent},
+        {path: 'order-search', component: OrderSearchComponent},
+        {path: 'order/:id', component: OrderDisplayComponent},
+        {path: 'order/:id/edit', component: OrderEditComponent},
 
-    {path: 'coupon/new-coupon', component: CouponEditComponent},
-    {path: 'coupon/:id', component: CouponDisplayComponent},
-    {path: 'coupon/:id/edit', component: CouponEditComponent},
-    {path: 'coupon-search', component: CouponSearchComponent},
+        {path: 'coupon/new-coupon', component: CouponEditComponent},
+        {path: 'coupon/:id', component: CouponDisplayComponent},
+        {path: 'coupon/:id/edit', component: CouponEditComponent},
+        {path: 'coupon-search', component: CouponSearchComponent},
 
-    {path: 'customer-search', component: CustomerSearchComponent}
+        {path: 'delivery-locations/new', component: EditDeliveryLocationComponent},
+        {path: 'delivery-locations/search', component: DeliveryLocationSearchComponent},
+        {path: 'delivery-locations/:pincode', component: DeliveryLocationDisplayComponent},
+        {path: 'delivery-locations/:pincode/edit', component: EditDeliveryLocationComponent},
+
+        {path: 'customer-search', component: CustomerSearchComponent},
+        {path: 'customer/:id', component: CustomerDisplayComponent},
+    ]},
+    {path: 'login', component: LoginComponent}
 ]
 @NgModule({
     imports: [

@@ -139,5 +139,8 @@
       }
     }
   },
-  "defaultProject": "Admin-Panel"
+  "defaultProject": "Admin-Panel",
+  "cli": {
+    "analytics": false
+  }
 }

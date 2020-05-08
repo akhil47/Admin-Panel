@@ -1,31 +1,49 @@
 <div id="main-container">
+  <form (ngSubmit)="searchForOrders(f)" #f="ngForm">
     <div id="search-field-container">
-        <input type="text" class="search-field form-control" 
-          name="search-text" placeholder="Enter Order ID or Product ID">
-        <a><i class="icon fas fa-search"></i></a>
-        <input class="radio" type="radio" name="search-option" value="id" checked>
-          <label>Order ID</label>
-        <input class="radio" type="radio" name="search-option" value="id">
-          <label>Product ID</label>
+      <input ngModel name="id"
+        type="text" class="search-field form-control" 
+        name="search-text" placeholder="Enter Order ID or Product ID">
+      <input [ngModel]="defaultID" name="idType"
+        class="radio" type="radio" value="orderID" checked="true">
+      <label>Order ID</label>
+      <input [ngModel]="defaultID" name="idType"
+        class="radio" type="radio" value="productID">
+      <label>Product ID</label>
+      <button [disabled]="!f.valid" type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
       <div class="filters-container" style="padding-bottom: 0px;">
-        <input placeholder="Pincode" class="filter-input-field form-control" type="text">
-        <input placeholder="Payment Mode" class="filter-input-field form-control" type="text">
-        <input placeholder="Payment Status" class="filter-input-field form-control" type="text">
-        <input placeholder="Order Status" class="filter-input-field form-control" type="text">
-        <input placeholder="Refund Status" class="filter-input-field form-control" type="text">
+        <input ngModel name="pincode" pattern="^[0-9]*$"
+          placeholder="Pincode" class="filter-input-field form-control" type="text">
+        <input ngModel name="paymentMode"
+          placeholder="Payment Mode" class="filter-input-field form-control" type="text">
+        <input ngModel name="paymentStatus"
+          placeholder="Payment Status" class="filter-input-field form-control" type="text">
+        <input ngModel name="orderStatus"
+          placeholder="Order Status" class="filter-input-field form-control" type="text">
+        <input ngModel name="refundStatus"
+          placeholder="Refund Status" class="filter-input-field form-control" type="text">
       </div>
       <div class="filters-container" style="padding-bottom: 0px;">
-        <input placeholder="Placement Date" class="filter-input-field form-control" type="text">
-        <input placeholder="Shipping Date" class="filter-input-field form-control" type="text">
-        <input placeholder="Delivery Date" class="filter-input-field form-control" type="text">
-        <input placeholder="Refund Date" class="filter-input-field form-control" type="text">
-        <input placeholder="Cancelled Date" class="filter-input-field form-control" type="text">
+        <input ngModel name="placementDate"
+          placeholder="Placement Date" class="filter-input-field form-control" type="text">
+        <input ngModel name="shippingDate"
+          placeholder="Shipping Date" class="filter-input-field form-control" type="text">
+        <input ngModel name="deliveryDate"
+          placeholder="Delivery Date" class="filter-input-field form-control" type="text">
+        <input ngModel name="refundDate"
+          placeholder="Refund Date" class="filter-input-field form-control" type="text">
+        <input ngModel name="cancelledDate"
+          placeholder="Cancelled Date" class="filter-input-field form-control" type="text">
       </div>
     </div>
-    <div id="search-results-container">
+  </form>
+  <div *ngIf="queryFired && (matchingResults.length == 0)">No Matching results found</div>
+  <div *ngIf="queryFired && (matchingResults.length != 0)" id="search-results-container">
       <app-table-scroll-container
         [headerText]="header"
         [columnHeaders]="columns"
+        [tableData]="data"
+        [baseLink]='link'
       ></app-table-scroll-container>
-    </div>
   </div>
+</div>

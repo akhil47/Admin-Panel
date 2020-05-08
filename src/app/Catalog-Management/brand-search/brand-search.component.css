@@ -12,10 +12,17 @@
 }
 .search-field{
     padding-right: 48px;
+    width: calc(100% - 46px);
+    display: inline-block;
+}
+button{
+    height: 38px;
+    width: 38px;
+    margin-left: 8px;
+    padding: 0px !important;
+    display: inline-block;
+    vertical-align: top;
 }
 .icon{
-    position: absolute;
-    top: 18px;
-    right: 20px;
     font-size: 16px;
 }

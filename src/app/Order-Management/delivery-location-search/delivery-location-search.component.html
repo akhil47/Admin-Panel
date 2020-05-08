@@ -1,0 +1,26 @@
+<div id="main-container">
+    <form id="search-form" (ngSubmit)="searchForLocations(f)" #f="ngForm">
+      <div id="search-field-container">
+        <input ngModel type="text" class="search-field form-control" 
+            name="searchText" placeholder="Enter Location name or pincode" #searchText="ngModel">
+        <input [ngModel]="defaultID" name="choice"
+            class="radio" type="radio" value="locationName" checked="true">
+        <label>Location name</label>
+        <input [ngModel]="defaultID" name="choice"
+            class="radio" type="radio" value="pincode">
+        <label>Pincode</label>
+        <button type="submit" class="btn btn-primary"><i class="icon fas fa-search"></i></button>
+      </div>
+    </form>
+    <div *ngIf="queryFired && (this.matchingLocations.length != 0)" id="search-results-container">
+        <app-table-scroll-container
+            [headerText]="header"
+            [columnHeaders]="columns"
+            [tableData]="data"
+            [baseLink]="link"
+        ></app-table-scroll-container>
+    </div>
+    <div *ngIf="queryFired && (this.matchingLocations.length == 0)">
+        No Matching Results Found
+    </div>
+</div>

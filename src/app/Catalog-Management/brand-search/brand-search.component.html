@@ -1,13 +1,21 @@
 <div id="main-container">
+  <form id="search-form" (ngSubmit)="searchForBrands(f)" #f="ngForm">
     <div id="search-field-container">
-        <input type="text" class="search-field form-control" 
-          name="search-text" placeholder="Enter Brand Name or Prefix">
-        <a><i class="icon fas fa-search"></i></a>
+      <input ngModel type="text" class="search-field form-control" 
+        name="searchText" placeholder="Enter Brand Name or Prefix" #searchText="ngModel">
+      <button type="submit" class="btn btn-primary"><i class="icon fas fa-search"></i></button>
     </div>
-    <div id="search-results-container">
-      <app-table-scroll-container
-        [headerText]="header"
-        [columnHeaders]="columns"
+  </form>
+  <div id="search-results-container">
+    <app-table-scroll-container
+      *ngIf="this.matchingBrands.length != 0"
+      [headerText]="header"
+      [columnHeaders]="columns"
+      [tableData]="data"
+      [baseLink]="link"
       ></app-table-scroll-container>
+    </div>
+    <div *ngIf="queryFired && !this.matchingBrands.length">
+      No Matching Results Found
     </div>
   </div>

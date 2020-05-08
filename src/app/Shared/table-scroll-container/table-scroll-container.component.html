@@ -12,21 +12,13 @@
     </div>
   </div>
   <div id="table-content">
-    <div class="order-row" *ngFor="let _ of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]">
-        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">1234567891234560</p>
-        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">Tommy Hilfiger</p>
-        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">Men</p>
-        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">Cloting</p>
-        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">Casual Shirts</p>
-        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">S</p>
-        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">10</p>
-        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">Rs. 10,200</p>
-        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">20%</p>
-        <p [ngStyle]="{ 'width': columnWidth }" class="column-text">Active</p>
-    </div>
+    <a (click)="openLink(row)" *ngFor="let row of tableData">
+      <div class="order-row">
+        <p style="white-space: pre-line" [ngStyle]="{ 'width': columnWidth }"
+          *ngFor="let column of row.rowData"
+          class="column-text">{{ column }}</p>
+      </div>
+    </a>
+    
   </div>
 </div>
-
-
-<!-- pending-orders-content = table-content-->
-<!-- pending-orders-header = table-header -->

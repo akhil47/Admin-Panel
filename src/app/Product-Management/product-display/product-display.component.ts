@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { ProductService } from 'src/app/Services/product.service'
 import { Product } from 'src/app/Modals/Product/product.modal';
@@ -13,18 +13,19 @@ export class ProductDisplayComponent implements OnInit {
 
   product: Product
 
-  constructor(private router: Router, private productService: ProductService) {
+  constructor(private router: Router,
+    private route: ActivatedRoute, private productService: ProductService) {
     
   }
-
   ngOnInit() {
-    this.product = this.productService.getProductByID('29785666')
-    console.log(this.product)
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.product = this.productService.getProductByID(params['id'])
+      }
+    )
   }
-
   onEditDetails(){
     this.router.navigate(['/product/' + this.product['id'] + '/edit'])
-    // Product Edit page must fetch product object from a service based on product 'id' in URL
   }
   returnZero(){
     return 0;

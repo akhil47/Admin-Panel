@@ -6,6 +6,7 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductSearchComponent } from './product-search/product-search.component';
 import { SharedModule } from '../Shared/shared.module';
 import { OutOfStockComponent } from './out-of-stock/out-of-stock.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations:[
@@ -18,7 +19,8 @@ import { OutOfStockComponent } from './out-of-stock/out-of-stock.component';
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        SharedModule
+        SharedModule,
+        RouterModule
     ],
     exports: [],
     providers: []

@@ -1,59 +1,122 @@
 <div id="main-container">
-    <p class="header-text">Coupon Details</p>
-    <div class="details-container">
-        <table class="form-container">
-            <tr class="table-row">
-                <td class="cell-1">Coupon Code</td>
-                <td class="cell-2">:</td>
-                <td class="cell-3">
-                    <input type="text" class="form-control">
-                </td>
-            </tr>
-            <tr class="table-row">
-                <td class="cell-1">Discount(%)</td>
-                <td class="cell-2">:</td>
-                <td class="cell-3">
-                    <input type="text" class="form-control">
-                </td>
-            </tr>
-            <tr class="table-row">
-                <td class="cell-1">Max Discount(Rs.)</td>
-                <td class="cell-2">:</td>
-                <td class="cell-3">
-                    <input type="text" class="form-control">
-                </td>
-            </tr>
-            <tr class="table-row">
-                <td class="cell-1">Minimum Cart Value</td>
-                <td class="cell-2">:</td>
-                <td class="cell-3">
-                    <input type="text" class="form-control">
-                </td>
-            </tr>
-            <tr class="table-row">
-                <td class="cell-1">Valid From</td>
-                <td class="cell-2">:</td>
-                <td class="cell-3">
-                    <input type="text" class="form-control">
-                </td>
-            </tr>
-            <tr class="table-row">
-                <td class="cell-1">Valid Till</td>
-                <td class="cell-2">:</td>
-                <td class="cell-3">
-                    <input type="text" class="form-control">
-                </td>
-            </tr>
-            <tr class="table-row">
-                <td class="cell-1">Description</td>
-                <td class="cell-2">:</td>
-                <td class="cell-3">
-                    <textarea cols="15" rows="5" class="form-control"></textarea>
-                </td>
-            </tr>
-        </table>
-        <button *ngIf="!editMode" type="submit" class="form-btn btn btn-success">Add Coupon</button>
-        <button *ngIf="editMode" type="button" class="form-btn btn btn-success">Save</button>
-        <button *ngIf="editMode" type="button" class="form-btn btn btn-danger">Cancel</button>
-    </div>
+    <form [formGroup]="couponForm" (ngSubmit)="onAddCoupon()">
+        <p class="header-text">Coupon Details</p>
+        <div class="details-container">
+            <table class="form-container">
+                <tr class="table-row">
+                    <td class="cell-1">Coupon Code</td>
+                    <td class="cell-2">:</td>
+                    <td class="cell-3">
+                        <input formControlName="couponCode" 
+                            [readonly]="editMode"
+                            type="text" class="form-control">
+                    </td>
+                </tr>
+                <tr *ngIf="couponForm.get('couponCode').touched && !couponForm.get('couponCode').valid">
+                    <td class="cell-1 error-msg-row"></td>
+                    <td class="cell-2 error-msg-row"></td>
+                    <td class="cell-3 error-msg-row">
+                        <p class="error-msg">Please enter Coupon Code</p>
+                    </td>
+                </tr>
+                <tr class="table-row">
+                    <td class="cell-1">Discount(%)</td>
+                    <td class="cell-2">:</td>
+                    <td class="cell-3">
+                        <input formControlName="discount"
+                            [readonly]="editMode"
+                            type="text" class="form-control">
+                    </td>
+                </tr>
+                <tr *ngIf="couponForm.get('discount').touched && !couponForm.get('discount').valid">
+                    <td class="cell-1 error-msg-row"></td>
+                    <td class="cell-2 error-msg-row"></td>
+                    <td class="cell-3 error-msg-row">
+                        <p class="error-msg">Please enter Discount (Only number input is allowed)</p>
+                    </td>
+                </tr>
+                <tr class="table-row">
+                    <td class="cell-1">Max Discount(Rs.)</td>
+                    <td class="cell-2">:</td>
+                    <td class="cell-3">
+                        <input formControlName="maxDiscount"
+                            [readonly]="editMode"
+                            type="text" class="form-control">
+                    </td>
+                </tr>
+                <tr *ngIf="couponForm.get('maxDiscount').touched && !couponForm.get('maxDiscount').valid">
+                    <td class="cell-1 error-msg-row"></td>
+                    <td class="cell-2 error-msg-row"></td>
+                    <td class="cell-3 error-msg-row">
+                        <p class="error-msg">Please enter Max Discount (Only number input is allowed)</p>
+                    </td>
+                </tr>
+                <tr class="table-row">
+                    <td class="cell-1">Minimum Cart Value (Rs.)</td>
+                    <td class="cell-2">:</td>
+                    <td class="cell-3">
+                        <input formControlName="minCartValue"
+                            type="text" class="form-control">
+                    </td>
+                </tr>
+                <tr *ngIf="couponForm.get('minCartValue').touched && !couponForm.get('minCartValue').valid">
+                    <td class="cell-1 error-msg-row"></td>
+                    <td class="cell-2 error-msg-row"></td>
+                    <td class="cell-3 error-msg-row">
+                        <p class="error-msg">Please enter Minimum Cart Value (Only number input is allowed)</p>
+                    </td>
+                </tr>
+                <tr class="table-row">
+                    <td class="cell-1">Valid From</td>
+                    <td class="cell-2">:</td>
+                    <td class="cell-3">
+                        <input formControlName="validFrom"
+                            [readonly]="editMode"
+                            type="text" class="form-control">
+                    </td>
+                </tr>
+                <tr *ngIf="couponForm.get('validFrom').touched && !couponForm.get('validFrom').valid">
+                    <td class="cell-1 error-msg-row"></td>
+                    <td class="cell-2 error-msg-row"></td>
+                    <td class="cell-3 error-msg-row">
+                        <p class="error-msg">Please enter Valid From date</p>
+                    </td>
+                </tr>
+                <tr class="table-row">
+                    <td class="cell-1">Valid Till</td>
+                    <td class="cell-2">:</td>
+                    <td class="cell-3">
+                        <input formControlName="validTill"
+                            type="text" class="form-control">
+                    </td>
+                </tr>
+                <tr *ngIf="couponForm.get('validTill').touched && !couponForm.get('validTill').valid">
+                    <td class="cell-1 error-msg-row"></td>
+                    <td class="cell-2 error-msg-row"></td>
+                    <td class="cell-3 error-msg-row">
+                        <p class="error-msg">Please enter Valid Till date</p>
+                    </td>
+                </tr>
+                <tr class="table-row">
+                    <td class="cell-1">Description</td>
+                    <td class="cell-2">:</td>
+                    <td class="cell-3">
+                        <textarea formControlName="description"
+                            cols="15" rows="5" class="form-control">
+                        </textarea>
+                    </td>
+                </tr>
+                <tr *ngIf="couponForm.get('description').touched && !couponForm.get('description').valid">
+                    <td class="cell-1 error-msg-row"></td>
+                    <td class="cell-2 error-msg-row"></td>
+                    <td class="cell-3 error-msg-row">
+                        <p class="error-msg">Please enter coupon description</p>
+                    </td>
+                </tr>
+            </table>
+            <button [disabled]="!couponForm.valid" *ngIf="!editMode" type="submit" class="form-btn btn btn-success">Add Coupon</button>
+            <button [disabled]="!couponForm.valid" (click)="onSaveCoupon()" *ngIf="editMode" type="button" class="form-btn btn btn-success">Save</button>
+            <button *ngIf="editMode" type="button" class="form-btn btn btn-danger">Cancel</button>
+        </div>
+    </form>
 </div>

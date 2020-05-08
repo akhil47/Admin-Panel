@@ -5,39 +5,39 @@
             <tr class="table-row">
                 <td class="cell-1">Coupon Code</td>
                 <td class="cell-2">:</td>
-                <td class="cell-3">MHHSAOAD879</td>
+                <td class="cell-3">{{ coupon.code }}</td>
             </tr>
             <tr class="table-row">
                 <td class="cell-1">Discount(%)</td>
                 <td class="cell-2">:</td>
-                <td class="cell-3">20%</td>
+                <td class="cell-3">{{ coupon.discount }} %</td>
             </tr>
             <tr class="table-row">
                 <td class="cell-1">Max Discount(Rs.)</td>
                 <td class="cell-2">:</td>
-                <td class="cell-3">1000</td>
+                <td class="cell-3">Rs. {{ coupon.maxDiscount }}</td>
             </tr>
             <tr class="table-row">
                 <td class="cell-1">Minimum Cart Value</td>
                 <td class="cell-2">:</td>
-                <td class="cell-3">2000</td>
+                <td class="cell-3">Rs. {{ coupon.minCartValue }}</td>
             </tr>
             <tr class="table-row">
                 <td class="cell-1">Valid From</td>
                 <td class="cell-2">:</td>
-                <td class="cell-3">20-03-2020</td>
+                <td class="cell-3">{{ coupon.validFrom }}</td>
             </tr>
             <tr class="table-row">
                 <td class="cell-1">Valid Till</td>
                 <td class="cell-2">:</td>
-                <td class="cell-3">20-04-2020</td>
+                <td class="cell-3">{{ coupon.validTill }}</td>
             </tr>
             <tr class="table-row">
                 <td class="cell-1">Description</td>
                 <td class="cell-2">:</td>
-                <td class="cell-3">This is a test coupon</td>
+                <td class="cell-3">{{ coupon.description }}</td>
             </tr>
         </table>
-        <button type="button" class="form-btn btn btn-primary">Edit</button>
+        <button (click)="onEditCoupon()" type="button" class="form-btn btn btn-primary">Edit</button>
     </div>
 </div>

@@ -8,6 +8,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LiveCountersComponent } from './live-counters/live-counters.component';
 import { DashboardContentComponent } from './dashboard-content/dashboard-content.component';
 import { RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { PanelComponent } from './panel/panel.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
     declarations:[
@@ -16,7 +19,10 @@ import { RouterModule } from '@angular/router';
         SideBarComponent,
         DashboardComponent,
         LiveCountersComponent,
-        DashboardContentComponent
+        DashboardContentComponent,
+        LoginComponent,
+        PanelComponent,
+        ChangePasswordComponent
     ],
     imports: [
         CommonModule,
@@ -25,7 +31,9 @@ import { RouterModule } from '@angular/router';
     ],
     exports: [
         HeaderComponent,
-        BodyComponent
+        BodyComponent,
+        PanelComponent,
+        LoginComponent
     ],
     providers: []
 })

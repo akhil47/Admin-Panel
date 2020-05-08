@@ -1,15 +1,20 @@
 <div id="main-container">
+  <form (ngSubmit)="searchForCategories(f)" #f="ngForm">
     <div id="search-field-container">
-        <input type="text" class="search-field form-control" 
-          name="search-text" placeholder="Enter Category Name or Prefix">
-          <input type="text" class="search-field form-control" 
-          name="search-text" placeholder="Enter Sub Category Name or Prefix">
-        <button type="submit" class="btn btn-primary">Search</button>
+      <input ngModel type="text" class="search-field form-control" 
+        name="category" placeholder="Enter Category Name or Prefix">
+        <input ngModel type="text" class="search-field form-control" 
+        name="subCategory" placeholder="Enter Sub Category Name or Prefix">
+      <button type="submit" class="btn btn-primary">Search</button>
     </div>
-    <div id="search-results-container">
+  </form>
+  <div *ngIf="queryFired && (matchingCategories.length == 0)">No Matching results found</div>
+  <div *ngIf="queryFired && (matchingCategories.length != 0)" id="search-results-container">
       <app-table-scroll-container
         [headerText]="header"
         [columnHeaders]="columns"
+        [tableData]="data"
+        [baseLink]="link"
       ></app-table-scroll-container>
-    </div>
+  </div>
   </div>

@@ -3,27 +3,28 @@
   <div [ngClass]="{
     'expand': isExpandedProductManagement
   }" class="menu-expansion">
-    <a routerLink="product/new" class="menu-item-text">Add Product</a>
-    <a routerLink = 'product-search' class="menu-item-text">Search Products</a>
-    <a routerLink = "out-of-stock" class="menu-item-text">Out of stock</a>
+    <a routerLink="/product/new" class="menu-item-text">Add Product</a>
+    <a routerLink = '/product-search' class="menu-item-text">Search Products</a>
+    <a routerLink = "/out-of-stock" class="menu-item-text">Out of stock</a>
   </div>
   <a (click)="expandCatalogManagement()">Catalog Management &nbsp;<span class="fas fa-caret-down"></span></a>
   <div [ngClass]="{
     'expand': isExpandedCatalogManagement
   }" class="menu-expansion">
-    <a routerLink="brand/new-brand" class="menu-item-text">Add Brand</a>
-    <a routerLink="category/new-category" class="menu-item-text">Add Category</a>
-    <a routerLink="brand-search" class="menu-item-text">Search Brands</a>
-    <a routerLink="category-search" class="menu-item-text">Search Categories</a>
+    <a routerLink="/brand/new-brand" class="menu-item-text">Add Brand</a>
+    <a routerLink="/category/new-category" class="menu-item-text">Add Category</a>
+    <a routerLink="/brand-search" class="menu-item-text">Search Brands</a>
+    <a routerLink="/category-search" class="menu-item-text">Search Categories</a>
   </div>
   <a (click)="expandOrdersManagement()">Orders Management &nbsp;<span class="fas fa-caret-down"></span></a>
   <div [ngClass]="{
     'expand': isExpandedOrdersManagement
   }" class="menu-expansion">
-    <a routerLink="coupon/new-coupon" class="menu-item-text">Add Coupon</a>
-    <a routerLink="coupon-search" class="menu-item-text">Search Coupons</a>
-    <a routerLink="order-search" class="menu-item-text">Search Orders</a>
-    <a class="menu-item-text">Delivery Locations</a>
+    <a routerLink="/coupon/new-coupon" class="menu-item-text">Add Coupon</a>
+    <a routerLink="/delivery-locations/new" class="menu-item-text">Add Location</a>
+    <a routerLink="/coupon-search" class="menu-item-text">Search Coupons</a>
+    <a routerLink="/order-search" class="menu-item-text">Search Orders</a>
+    <a routerLink="/delivery-locations/search" class="menu-item-text">Search Locations</a>
   </div>
-  <a routerLink="customer-search">Customer Management</a>
+  <a routerLink="/customer-search">Customer Management</a>
 </div>

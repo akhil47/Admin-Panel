@@ -13,6 +13,7 @@ export class CustomerSearchComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

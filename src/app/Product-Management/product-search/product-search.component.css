@@ -11,15 +11,20 @@
 
 }
 .search-field{
-    width: 80%;
+    width: calc(100% - 50px);
     display: inline-block;
     padding-right: 48px;
 }
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
 .icon{
-    position: absolute;
-    top: 18px;
-    left: 765px;
+    position: relative;
     font-size: 16px;
+}
+#submit-btn{
+    vertical-align: top;
+    margin-left: 8px;
 }
 .radio{
     height: 1.2em;

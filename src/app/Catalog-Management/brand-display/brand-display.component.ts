@@ -4,6 +4,8 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { ProductService } from 'src/app/Services/product.service';
 import { Product } from 'src/app/Modals/Product/product.modal';
+import { CatalogService } from 'src/app/Services/catalog.service';
+import { Brand } from 'src/app/Modals/Product/brand.modal';
 
 @Component({
   selector: 'app-brand-display',
@@ -12,19 +14,18 @@ import { Product } from 'src/app/Modals/Product/product.modal';
 })
 export class BrandDisplayComponent implements OnInit {
 
-  brand = {
-    name: 'Tommy Hilfiger',
-    status: "Active"
+  brand: Brand
+
+  constructor(private router: Router, 
+    private catalogService: CatalogService, private route: ActivatedRoute) {
   }
 
-  constructor(private router: Router) {
-    
+  ngOnInit(){
+    this.route.params.subscribe((params: Params)=>{
+      this.brand = this.catalogService.getBrand(params['name'])
+    })
   }
-
-  ngOnInit() {}
-
   onEditDetails(){
     this.router.navigate(['/brand/' + this.brand.name + '/edit'])
-    // Brand Edit page must fetch brand object from a service based on brand 'name' in URL
   }
 }

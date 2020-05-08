@@ -12,6 +12,10 @@ import{ OrderItemComponent } from './order-item/order-item.component';
 import { CouponEditComponent } from './coupon-edit/coupon-edit.component';
 import { CouponDisplayComponent } from './coupon-display/coupon-display.component';
 import { CouponSearchComponent } from './coupon-search/coupon-search.component'
+import { RouterModule } from '@angular/router';
+import { EditDeliveryLocationComponent } from './edit-delivery-location/edit-delivery-location.component';
+import { DeliveryLocationDisplayComponent } from './delivery-location-display/delivery-location-display.component';
+import { DeliveryLocationSearchComponent } from './delivery-location-search/delivery-location-search.component';
 
 
 
@@ -23,16 +27,22 @@ import { CouponSearchComponent } from './coupon-search/coupon-search.component'
         OrderItemComponent,
         CouponEditComponent,
         CouponDisplayComponent,
-        CouponSearchComponent
+        CouponSearchComponent,
+        EditDeliveryLocationComponent,
+        DeliveryLocationDisplayComponent,
+        DeliveryLocationSearchComponent
     ],
     imports: [
       BrowserModule,
       FormsModule,
       ReactiveFormsModule,
       SharedModule,
-      HttpClientModule
+      HttpClientModule,
+      RouterModule
     ],
-    exports: [],
+    exports: [
+      OrderItemComponent
+    ],
     providers: []
   })
 export class OrderModule{}

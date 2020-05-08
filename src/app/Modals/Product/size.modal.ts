@@ -1,12 +1,16 @@
 export class Size{
-    sizeName: string
-    availableQuantity: number
+    name: string
+    quantity: number
     price: number // original price without discount, compute discount price on fly
     discount: number //percent eg: 20% = 20
-    readonly dateAdded: string
-    dateModified: string
-    status: boolean
-    constructor(date: string){
-        this.dateAdded = date
+    status: string
+    constructor(){
+    }
+    copyDataFromJSON(size){
+        this.name       = size['name']
+        this.quantity   = size['quantity']
+        this.price      = size['price']
+        this.discount   = size['discount']
+        this.status     = size['status']
     }
 }

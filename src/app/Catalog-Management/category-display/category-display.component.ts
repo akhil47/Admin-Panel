@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Category } from 'src/app/Modals/Product/category.modal';
+import { CatalogService } from 'src/app/Services/catalog.service';
 
 @Component({
   selector: 'app-category-display',
@@ -8,22 +10,18 @@ import { Router } from '@angular/router';
 })
 export class CategoryDisplayComponent implements OnInit {
 
-  category = {
-    'name': 'Clothing',
-    'status': "Active",
-    'sub-categories': [
-      'Casual Shirts',
-      'T-Shirts',
-      'Jeans',
-      'Causal Trousers'
-    ]
-  }
+  category : Category
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+    private route: ActivatedRoute, private catalogService: CatalogService) {
     
   }
 
-  ngOnInit() {}
+  ngOnInit(){
+    this.route.params.subscribe((params: Params) => {
+      this.category = this.catalogService.getCategory(params['name'])
+    })
+  }
 
   onEditDetails(){
     this.router.navigate(['/category/' + this.category.name + '/edit'])

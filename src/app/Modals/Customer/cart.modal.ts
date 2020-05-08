@@ -90,8 +90,8 @@ export class Cart{
 
         let discount = cartValue * (this.coupon.discount / 100)
 
-        if(discount <= this.coupon.maxDiscountAmount) return discount;
-        else return this.coupon.maxDiscountAmount
+        if(discount <= this.coupon.maxDiscount) return discount;
+        else return this.coupon.maxDiscount
     }
     private calculateTotal(){
         let total = this.MRP + this.shippingCharges + this.GST

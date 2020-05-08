@@ -26,7 +26,14 @@
             <tr>
               <td class="side-headings">Brand Name</td>
               <td class="side-headings"> : &nbsp;</td>
-              <td><input [readonly]="editMode" formControlName = "name" type="text" class="form-control"></td>
+              <td><input [readonly]="editMode" 
+                    [ngClass]="{ 'error-field': this.brand.get('name').touched && !this.brand.get('name').valid }"
+                    formControlName = "name" type="text" class="form-control"></td>
+            </tr>
+            <tr *ngIf="this.brand.get('name').touched && !this.brand.get('name').valid">
+              <td class="error-msg-row"></td>
+              <td class="error-msg-row">&nbsp;</td>
+              <td class="error-msg-row"><p class="error-msg">Please enter Brand Name</p></td>
             </tr>
             <tr>
               <td class="side-headings">Status</td>
@@ -57,8 +64,8 @@
           </div>
   
           <div id="seperator"></div>
-          <button *ngIf="!editMode" type="submit" style="margin-top: 8px" class="btn btn-primary">Add Brand</button>
-          <button (click)="onSaveChanges()" style="margin-right: 8px; margin-top: 8px" *ngIf="editMode" type="button" class="btn btn-success">Save Changes</button>
+          <button [disabled]="!brand.valid" *ngIf="!editMode" type="submit" style="margin-top: 8px" class="btn btn-primary">Add Brand</button>
+          <button [disabled]="!brand.valid" (click)="onSaveChanges()" style="margin-right: 8px; margin-top: 8px" *ngIf="editMode" type="button" class="btn btn-success">Save Changes</button>
           <button (click)="onDeleteBrand()" *ngIf="editMode" type="button" style="margin-top: 8px" class="btn btn-danger">Delete Brand</button>
         </div>
       </form>

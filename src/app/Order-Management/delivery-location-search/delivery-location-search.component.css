@@ -1,0 +1,43 @@
+#main-container{
+    width: 100%;
+}
+#search-field-container{
+    position: relative;
+    padding: 8px;
+    margin-bottom: 8px;
+    width: 100%;
+    text-align: justify;
+    background-color: rgb(142, 185, 255, 0.1);
+
+}
+.search-field{
+    padding-right: 48px;
+    width: 65%;
+    display: inline-block;
+}
+.radio{
+    height: 1.2em;
+    width: 1.2em;
+    margin: 0px;
+    margin-left: 16px;
+    display: inline-block;
+    cursor: pointer;
+}
+label{
+    font-size: 16px;
+    margin: 0px;
+    padding: 4px 4px;
+    display: inline-block;
+    vertical-align: top;
+}
+button{
+    height: 38px;
+    width: 38px;
+    margin-left: 8px;
+    padding: 0px !important;
+    display: inline-block;
+    vertical-align: top;
+}
+.icon{
+    font-size: 16px;
+}

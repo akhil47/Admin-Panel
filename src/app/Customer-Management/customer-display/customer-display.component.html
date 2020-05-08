@@ -1,0 +1,78 @@
+<div id=main-container>
+    <p id="header">Customer Information</p>
+    <img id="customer-image" [src]="displayPicture" alt="">
+    <div id="customer-details">
+        <p class="heading-text">Akhilesh Lingala</p>
+        <table style="width: 100%;">
+            <tr>
+                <td class="customer-details-side-headings">Gender</td>
+                <td class="colon">:&nbsp;&nbsp;</td>
+                <td class="customer-details-text">Male</td>
+            </tr>
+            <tr>
+                <td class="customer-details-side-headings">E-Mail</td>
+                <td class="colon">:&nbsp;&nbsp;</td>
+                <td class="customer-details-text">akhil47@icloud.com</td>
+            </tr>
+            <tr>
+                <td class="customer-details-side-headings">Mobile No</td>
+                <td class="colon">:&nbsp;&nbsp;</td>
+                <td class="customer-details-text">+91 9177721444</td>
+            </tr>
+            <tr>
+                <td class="customer-details-side-headings">Customer ID</td>
+                <td class="colon">:&nbsp;&nbsp;</td>
+                <td class="customer-details-text">5ewjk390234kjk300fjwkh0032kk</td>
+            </tr>
+            <tr>
+                <td class="customer-details-side-headings">Member Since</td>
+                <td class="colon">:&nbsp;&nbsp;</td>
+                <td class="customer-details-text">22 May 2018</td>
+            </tr>
+            <tr>
+                <td class="customer-details-side-headings">Account Status</td>
+                <td class="colon">:&nbsp;&nbsp;</td>
+                <td class="customer-details-text">
+                    <input class="status-btn" name="status" type="radio" checked><label class="status-btn-text">Active</label>
+                    <input class="status-btn" name="status" type="radio"><label class="status-btn-text">Inactive</label>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <p class="heading-text">Addresses</p>
+        <div class="seperator"></div>
+        <div *ngFor="let _ of [1,2,3]" class="address-container">
+            <p class="name">Akhilesh Lingala</p>
+            <p class="door-and-street">
+                72/A, Sector - 1, Ukkunagaram, Near sector - 1 Shopping complex
+            </p>
+            <p class="city">Visakhapatnam</p>
+            <p class="state">Andhra Pradesh - 530032</p>
+            <p class="mobile">+91 9177721444</p>
+        </div>
+    </div>
+    <div style="margin-bottom: 16px;">
+        <p class="heading-text">Orders</p>
+        <div class="seperator"></div>
+        <div style="height: 512px;">
+            <app-table-scroll-container
+            [headerText]="heading"
+            [columnHeaders]="headers"
+            [tableData]="data"
+            [baseLink]="link"
+            >
+            </app-table-scroll-container>
+        </div>
+    </div>
+    <div style="margin-bottom: 16px;">
+        <p class="heading-text">Items in Cart</p>
+        <div class="seperator"></div>
+        <app-order-item *ngFor="let _ of [1,2,3]"></app-order-item>
+    </div>
+    <div style="margin-bottom: 16px;">
+        <p class="heading-text">Items in Wishlist</p>
+        <div class="seperator"></div>
+        <app-order-item *ngFor="let _ of [1,2,3]"></app-order-item>
+    </div>
+</div>

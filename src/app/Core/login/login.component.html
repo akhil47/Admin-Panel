@@ -1,0 +1,17 @@
+<div id="main-container">
+    <form (ngSubmit)="login(f)" #f="ngForm">
+        <div id="login-form-container">
+            <p class="login-heading">Admin Panel</p>
+            <p *ngIf="errorOccured" class="error-msg">{{ errorMessage }}</p>
+            <input ngModel name="username" type="text"
+                #username="ngModel"
+                class="form-control" placeholder="Username" required>
+            <span *ngIf="!username.valid && username.touched">Please enter your username</span>
+            <input ngModel name="password" type="password"
+                #password="ngModel"
+                class="form-control" placeholder="Password" required>
+            <span *ngIf="!password.valid && password.touched">Please enter your password</span>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </form>
+</div>

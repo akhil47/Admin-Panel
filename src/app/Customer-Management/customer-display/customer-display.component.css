@@ -1,0 +1,79 @@
+#main-container{
+    text-align: left;
+    background-color: rgb(142, 185, 255, 0.1);
+    padding: 0px 8px;
+}
+#header{
+    margin: 0px;
+    padding: 8px;
+    background: #8eb9ff;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+}
+#customer-image{
+    height: 256px;
+    width: 256px;
+    object-fit: fill;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 16px;
+    vertical-align: top;
+}
+#customer-details{
+    width: calc(100% - 288px);
+    display: inline-block;
+    margin-top: 16px;
+    padding: 8px 16px;
+    vertical-align: top;
+}
+.heading-text{
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.customer-details-text{
+    font-size: 16px;
+}
+.customer-details-side-headings{
+    font-size: 16px;
+    font-weight: 600;
+}
+.status-btn{
+    display: inline-block;
+    margin-right: 8px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+.status-btn-text{
+    margin-right: 16px;
+    display: inline-block;
+    margin-top: 8px;
+}
+.seperator{
+    height: 1px;
+    background-color: black;
+    margin-bottom: 8px;
+}
+.address-container{
+    width: calc((100% / 3) - 8px);
+    /* background-color: white; */
+    margin-right: 8px;
+    padding: 8px;
+    display: inline-block;
+}
+.name{
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+.door-and-street{
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+.city, .state{
+    margin-bottom: 0px;
+    font-size: 14px;
+}
+.mobile{
+    margin-top: 8px;
+}

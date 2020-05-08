@@ -20,11 +20,14 @@ import { CatalogService } from './Services/catalog.service';
 import { OrderModule } from './Order-Management/order.module';
 import { CustomerSearchComponent } from './Customer-Management/customer-search/customer-search.component';
 import { HttpService } from './Services/http.service';
+import { OrderService } from './Services/order.service';
+import { CustomerDisplayComponent } from './Customer-Management/customer-display/customer-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerSearchComponent,
+    CustomerDisplayComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,7 @@ import { HttpService } from './Services/http.service';
     HttpClientModule
   ],
   exports: [],
-  providers: [ProductService, CatalogService, SharedComponentService, DummyServer, HttpService],
+  providers: [ProductService, CatalogService, OrderService, SharedComponentService, DummyServer, HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

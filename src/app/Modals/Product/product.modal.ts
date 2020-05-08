@@ -10,11 +10,27 @@ export class Product{
     category: string
     subCategory: string
     private sizeList: Size[]
-    status: boolean
+    status: string
     constructor(){
         this.sizeList = []
     }
-
+    copyDataFromJSON(product){
+        if ('_id' in product)this.id = product['_id']
+        
+        this.name           = product['name']
+        this.description    = product['description']
+        this.images         = product['images']
+        this.genderGroup    = product['genderGroup']
+        this.brand          = product['brand']
+        this.category       = product['category']
+        this.subCategory    = product['subCategory']
+        this.status         = product['status']
+        for(let size of product['sizeList']){
+            var s = new Size()
+            s.copyDataFromJSON(size)
+            this.sizeList.push(s)
+        }
+    }
     // sizeList property related methods
 
     getSizeList(){ return this.sizeList }
@@ -24,18 +40,18 @@ export class Product{
     getSizeNamesList(){
         let sizes = []
         for(let size of this.sizeList){
-            sizes.push(size.sizeName)
+            sizes.push(size.name)
         }
         return sizes
     }
     getSize(size: string): Size{
         for(let s of this.sizeList){
-            if(s.sizeName == size) return s
+            if(s.name == size) return s
         }
     }
     checkSize(size: string): boolean{
         for(let s of this.sizeList){
-            if(s.sizeName == size && s.availableQuantity > 0) return true
+            if(s.name == size && s.quantity > 0) return true
         }
         return false
     }
@@ -48,21 +64,21 @@ export class Product{
     sizesToString(){
         var sizeString: string = ''
         for(let size of this.sizeList){
-            sizeString += (size.sizeName + ' ')
+            sizeString += (size.name + ' ')
         }
         return sizeString
     }
     increaseSizeQuantity(size: string, quantity: number){
         for(let s of this.sizeList){
-            if(s.sizeName == size){
-                s.availableQuantity += quantity
+            if(s.name == size){
+                s.quantity += quantity
             }
         }
     }
     decreaseSizeQuantity(size: string, quantity: number){
         for(let s of this.sizeList){
-            if(s.sizeName == size){
-                s.availableQuantity -= quantity
+            if(s.name == size){
+                s.quantity -= quantity
             }
         }
     }

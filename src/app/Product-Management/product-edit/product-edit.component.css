@@ -19,6 +19,17 @@ td, th{
     padding: 8px 0px;
     padding-right: 8px;
 }
+.error-msg-row{
+    padding: 0px;
+}
+.error-msg{
+    font-size: 14px;
+    margin: 0px;
+    color: red;
+}
+.error-field{
+    border: 1px solid red;
+}
 #size-list-container{
     width: 100%;
     text-align: center;
@@ -106,6 +117,9 @@ img{
     font-size: 14px;
     font-weight: bold;
     padding-bottom: 16px;
+}
+.dropdown{
+    width: 256px;
 }
 
 

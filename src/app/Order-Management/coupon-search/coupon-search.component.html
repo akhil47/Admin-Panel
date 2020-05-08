@@ -1,24 +1,25 @@
 <div id="main-container">
-    <div class="container" style="padding-bottom: 0px;">
-        <input type="text" class="search-field form-control" 
-            placeholder="Enter Coupon ID or Coupon code">
-        <input type="radio" name="search-type" class="search-radio" value="id">
-        <label class="search-radio">ID</label>
-        <input type="radio" name="search-type" class="search-radio" value="code">
-        <label class="search-radio">Code</label>
-        <button style="margin-left: 8px;" class="btn btn-primary">Search</button>
-    </div>
-    <div class="container">
-        <input type="text" class="params form-control" placeholder="Valid From">
-        <input type="text" class="params form-control" placeholder="Valid To">
-        <input type="text" class="params form-control" placeholder="Discount">
-        <input type="text" class="params form-control" placeholder="Min. Cart Value">
-        <input type="text" class="params form-control" placeholder="Max. Discount">
-    </div>
-    <div class="container">
+    <form [formGroup]="searchForm" (ngSubmit)="searchForCoupons()">
+        <div class="container" style="padding-bottom: 0px;">
+            <input formControlName="code" type="text" class="search-field form-control" 
+                placeholder="Enter Coupon code">
+            <button id="search-btn" class="btn btn-primary">Search</button>
+        </div>
+        <div class="container">
+            <input formControlName="validFrom" type="text" class="params form-control" placeholder="Valid From">
+            <input formControlName="validTill" type="text" class="params form-control" placeholder="Valid Till">
+            <input formControlName="discount" type="text" class="params form-control" placeholder="Discount">
+            <input formControlName="minCartValue" type="text" class="params form-control" placeholder="Min. Cart Value">
+            <input formControlName="maxDiscount" type="text" class="params form-control" placeholder="Max. Discount">
+        </div>
+    </form>
+    <div *ngIf="queryFired && (matchingResults.length == 0)">No Matching results found</div>
+    <div *ngIf="queryFired && (matchingResults.length != 0)" class="container">
         <app-table-scroll-container
         [headerText]="header"
         [columnHeaders]="columns"
+        [tableData]="data"
+        [baseLink]="link"
         ></app-table-scroll-container>
     </div>
 </div>

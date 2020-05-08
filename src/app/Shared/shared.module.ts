@@ -4,6 +4,7 @@ import { PopupComponent } from './popup/popup.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations:[
@@ -12,7 +13,8 @@ import { FormsModule } from '@angular/forms';
         DropdownComponent,
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        RouterModule
     ],
     exports: [
         TableScrollContainerComponent,

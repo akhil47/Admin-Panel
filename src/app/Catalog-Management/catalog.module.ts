@@ -10,6 +10,7 @@ import { CategoryDisplayComponent } from './category-display/category-display.co
 import { CategoryEditComponent } from './category-edit/category-edit.component';
 import { BrandSearchComponent } from './brand-search/brand-search.component';
 import { CategorySearchComponent } from './category-search/category-search.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { CategorySearchComponent } from './category-search/category-search.compo
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        SharedModule
+        SharedModule,
+        RouterModule
     ],
     exports: [],
     providers: []

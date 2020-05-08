@@ -1,31 +1,34 @@
 <div id="main-container">
-  <div id="search-field-container">
-      <input type="text" class="search-field form-control" 
-        name="search-text" placeholder="Enter Product ID or Name">
-      <a><i class="icon fas fa-search"></i></a>
-      <input class="radio" type="radio" name="search-option" value="id" checked>
-        <label>ID</label>
-      <input class="radio" type="radio" name="search-option" value="id">
-        <label>Name</label>
-    <div class="filters-container">
-          <app-dropdown dropdownHeader= "Brand" class="filter"></app-dropdown>
-          <app-dropdown dropdownHeader= "Gender Group" class="filter"></app-dropdown>
-          <app-dropdown dropdownHeader= "Category" class="filter"></app-dropdown>
-          <app-dropdown dropdownHeader= "Sub Category" class="filter"></app-dropdown>
-          <app-dropdown dropdownHeader= "Status" class="filter"></app-dropdown>
+  <form [formGroup]="searchForm" (ngSubmit)="searchProducts()">
+    <div id="search-field-container">
+      <input type="text" class="search-field form-control"
+        formControlName="id" placeholder="Enter Product ID">
+      <button [disabled]="!searchForm.valid" type="submit" id="submit-btn" class="btn btn-primary">
+        <i class="icon fas fa-search"></i>
+      </button>
+      <div class="filters-container">
+            <app-dropdown (onItemSelected)="onBrandSelected($event)" dropdownHeader= "Brand" class="filter"></app-dropdown>
+            <app-dropdown (onItemSelected)="onGenderGroupSelected($event)" dropdownHeader= "Gender Group" class="filter"></app-dropdown>
+            <app-dropdown (onItemSelected)="onCategorySelected($event)" dropdownHeader= "Category" class="filter"></app-dropdown>
+            <app-dropdown (onItemSelected)="onSubCategorySelected($event)" dropdownHeader= "Sub Category" class="filter"></app-dropdown>
+            <app-dropdown (onItemSelected)="onStatusSelected($event)" dropdownHeader= "Status" class="filter"></app-dropdown>
+      </div>
+      <div class="filters-container" style="padding-bottom: 0px;">
+        <input formControlName="size" placeholder="Size" class="filter-input-field form-control" type="text">
+        <input formControlName="quantity" placeholder="Quantity" class="filter-input-field form-control" type="text">
+        <input formControlName="minPrice" placeholder="Min. Price" class="filter-input-field form-control" type="text">
+        <input formControlName="maxPrice" placeholder="Max. Price" class="filter-input-field form-control" type="text">
+        <input formControlName="discount" placeholder="Discount" class="filter-input-field form-control" type="text">
+      </div>
     </div>
-    <div class="filters-container" style="padding-bottom: 0px;">
-      <input placeholder="Size" class="filter-input-field form-control" type="text">
-      <input placeholder="Quantity" class="filter-input-field form-control" type="text">
-      <input placeholder="Min. Price" class="filter-input-field form-control" type="text">
-      <input placeholder="Max. Price" class="filter-input-field form-control" type="text">
-      <input placeholder="Discount" class="filter-input-field form-control" type="text">
-    </div>
-  </div>
-  <div id="search-results-container">
+  </form>
+  <div *ngIf="queryFired && (matchingResults.length == 0)">No Matching results found</div>
+  <div *ngIf="queryFired && (matchingResults.length != 0)" id="search-results-container">
     <app-table-scroll-container
       [headerText]="header"
       [columnHeaders]="columns"
+      [tableData]="data"
+      [baseLink]="link"
     ></app-table-scroll-container>
   </div>
 </div>

@@ -1,0 +1,48 @@
+<div id="main-container">
+    <form [formGroup]="deliveryLocation" (ngSubmit)="addDeliveryLocation()">
+        <p id="header">Delivery Location Details</p>
+        <div id="details-container">
+          <table style="width: 100%;">
+            <tr>
+              <td class="side-headings">Location Name</td>
+              <td class="side-headings"> : &nbsp;</td>
+              <td><input
+                [ngClass]="{ 'error-field': deliveryLocation.get('locationName').touched && deliveryLocation.get('locationName').invalid }"
+                    formControlName = "locationName" type="text" class="form-control"></td>
+            </tr>
+            <tr *ngIf="deliveryLocation.get('locationName').touched && deliveryLocation.get('locationName').invalid">
+              <td class="error-msg-row"></td>
+              <td class="error-msg-row">&nbsp;</td>
+              <td class="error-msg-row"><p class="error-msg">Please enter Location name</p></td>
+            </tr>
+            <tr>
+                <td class="side-headings">Pincode</td>
+                <td class="side-headings"> : &nbsp;</td>
+                <td><input [readonly]="editMode"
+                      [ngClass]="{ 'error-field': deliveryLocation.get('pincode').touched && deliveryLocation.get('pincode').invalid }"
+                      formControlName = "pincode" type="text" class="form-control"></td>
+              </tr>
+              <tr *ngIf="deliveryLocation.get('pincode').touched && deliveryLocation.get('pincode').invalid">
+                <td class="error-msg-row"></td>
+                <td class="error-msg-row">&nbsp;</td>
+                <td class="error-msg-row"><p class="error-msg">Please enter Pincode</p></td>
+              </tr>
+            <tr>
+              <td class="side-headings">Status</td>
+              <td class="side-headings"> : &nbsp;</td>
+              <td><div style="text-align: justify;">
+                <input formControlName = "status" type="radio" name="status" class="radio" 
+                value="Active" checked>
+                <label class="radio-text">Active</label>
+                <input formControlName = "status" type="radio" name="status" class="radio"
+                value="Inactive">
+                <label class="radio-text">Inactive</label>
+              </div></td>
+            </tr>
+          </table>
+          <div id="seperator"></div>
+          <button [disabled]="!deliveryLocation.valid" *ngIf="!editMode" type="submit" style="margin-top: 8px" class="btn btn-primary">Add Delivery Location</button>
+          <button [disabled]="!deliveryLocation.valid" (click)="saveDeliveryLocation()" *ngIf="editMode" style="margin-top: 8px" type="button" class="btn btn-success">Save Changes</button>
+        </div>
+    </form>
+</div>

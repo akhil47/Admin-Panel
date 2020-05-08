@@ -19,6 +19,17 @@ td, th{
     padding: 8px 0px;
     padding-right: 8px;
 }
+.error-field{
+    border: 1px solid red;
+}
+.error-msg-row{
+    padding: 0px;
+}
+.error-msg{
+    font-size: 14px;
+    color: red;
+    margin: 0px;
+}
 .radio-button-container{
     text-align: justify;
     display: inline-block;

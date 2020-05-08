@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule, FormGroup, FormControl} from '@angular/forms'
-import { ActivatedRoute, Params } from '@angular/router';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators} from '@angular/forms'
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Brand } from 'src/app/Modals/Product/brand.modal';
 import { CatalogService } from 'src/app/Services/catalog.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-brand-edit',
@@ -17,17 +18,18 @@ export class BrandEditComponent implements OnInit {
   allowNewImage: boolean = true
   editMode: boolean = false
   editModeBrand: Brand
-  
+
   isPopupClosed: boolean = true
   showPreview:boolean = false
 
   imgUrl: string = ""
 
-  constructor(private route: ActivatedRoute, private catalogService: CatalogService) {
+  constructor(private router: Router, 
+    private route: ActivatedRoute, private catalogService: CatalogService) {
     this.brand = new FormGroup({
-      'name': new FormControl(null),
-      'status': new FormControl(null),
-      'image': new FormControl(null)
+      'name'  : new FormControl(null, [Validators.required]),
+      'status': new FormControl({value: 'Active', disabled: false}, [Validators.required]),
+      'image' : new FormControl(null)
     })
   }
 
@@ -40,7 +42,12 @@ export class BrandEditComponent implements OnInit {
     if(this.editMode) this.editBrand()
   }
   onAddBrand(){
-    console.log(this.brand.value)
+    var newBrandJSON = this.brand.value
+    var newBrand = new Brand()
+    newBrand.copyDataFromJSON(newBrandJSON)
+    
+    this.catalogService.addNewBrand(newBrand, newBrandJSON);
+    this.router.navigate(['/brand/', this.brand.value.name])
   }
 
 
@@ -82,8 +89,12 @@ export class BrandEditComponent implements OnInit {
     }, 2000)
   }
   onSaveChanges(){
-    console.log(this.brand.value)
-    this.catalogService.updateBrand(this.brandName, this.brand.value)
+    var updatedBrandJSON = this.brand.value
+    var updatedBrand = new Brand()
+    updatedBrand.copyDataFromJSON(updatedBrandJSON)
+    
+    this.catalogService.updateBrand(updatedBrand, updatedBrandJSON)
+    this.router.navigate(['/brand/', this.brand.value.name])
   }
   onDeleteBrand(){
     this.catalogService.deleteBrand(this.brandName)

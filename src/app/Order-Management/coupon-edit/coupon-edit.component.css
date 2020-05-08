@@ -15,6 +15,17 @@
     padding: 8px;
     text-align: left;
 }
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+.error-msg-row{
+    padding: 0px;
+}
+.error-msg{
+    font-size: 14px;
+    color: red;
+    margin: 0px;
+}
 .form-container{
     width: 100%;
     font-size: 16px;

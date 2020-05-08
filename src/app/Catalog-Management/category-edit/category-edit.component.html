@@ -1,20 +1,27 @@
 <div id="main-container">
     <!-- Reactive New Product Form Section -->
       <form [formGroup]="category" (ngSubmit)="onAddCategory()">
-        <p id="header">Brand Details</p>
+        <p id="header">Category Details</p>
         <div id="details-container">
           <!-- Main Form Contents Section -->
           <table style="width: 100%;">
             <tr>
               <td class="side-headings">Category Name</td>
               <td class="side-headings"> : &nbsp;</td>
-              <td><input [readonly]="editMode" formControlName = "name" type="text" class="form-control"></td>
+              <td><input [readonly]="editMode" 
+                    [ngClass]="{ 'error-field': category.get('name').touched && !category.get('name').valid }"
+                    formControlName = "name" type="text" class="form-control"></td>
+            </tr>
+            <tr *ngIf="category.get('name').touched && !category.get('name').valid">
+              <td class="error-msg-row"></td>
+              <td class="error-msg-row">&nbsp;</td>
+              <td class="error-msg-row"><p class="error-msg">Please enter Category Name</p></td>
             </tr>
             <tr>
               <td class="side-headings">Status</td>
               <td class="side-headings"> : &nbsp;</td>
               <td><div style="text-align: justify;">
-                <input formControlName = "status" type="radio" name="status" class="radio" 
+                <input formControlName = "status" type="radio" name="status" class="radio"
                 value="Active" checked>
                 <label class="radio-text">Active</label>
                 <input formControlName = "status" type="radio" name="status" class="radio"
@@ -23,24 +30,27 @@
               </div></td>
             </tr>
           </table>
-    
+
           <div id="seperator"></div>
           <p class="main-side-heading">Sub Categories</p>
           <div id="seperator"></div>
-          <table formArrayName="sub-categories" style="width: 100%; font-size: 14px;">
+          <table formArrayName="subCategories" style="width: 100%; font-size: 14px;">
             <tr *ngFor="let sub of getSubCategoryControls(); let i = index">
                 <td class="side-headings">{{ 'Sub Category ' + ( i + 1 )}}</td>
                 <td class="side-headings"> : &nbsp;</td>
                 <td style="text-align: center;">
-                    <input [formControlName] = "i" type="text" class="sub-category-input form-control">
+                    <input [formControlName] = "i"
+                    [readonly]="checkSubCategoryDisabledStatus(i)" 
+                    [ngClass]="{ 'error-field': getSubCategoryControl(i).touched && !getSubCategoryControl(i).valid }"
+                      type="text" class="sub-category-input form-control">
                     <a (click)="onRemoveSubCategory(i)" class="remove-link">Remove</a>
                 </td>
             </tr>
           </table>
           <div id="seperator"></div>
           <a (click)="onAddSubCategory()" id="add-size">+ Add New Sub Category</a>
-          <button *ngIf="!editMode" type="submit" style="margin-top: 8px" class="btn btn-primary">Add Product</button>
-          <button (click)="onSaveChanges()" style="margin-right: 8px; margin-top: 8px" *ngIf="editMode" type="button" class="btn btn-success">Save Changes</button>
+          <button [disabled]="!category.valid" *ngIf="!editMode" type="submit" style="margin-top: 8px" class="btn btn-primary">Add Category</button>
+          <button [disabled]="!category.valid" (click)="onSaveChanges()" style="margin-right: 8px; margin-top: 8px" *ngIf="editMode" type="button" class="btn btn-success">Save Changes</button>
           <button *ngIf="editMode" type="button" style="margin-top: 8px" class="btn btn-danger">Delete Product</button>
         </div>
       </form>

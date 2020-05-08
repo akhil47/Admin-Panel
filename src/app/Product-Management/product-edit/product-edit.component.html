@@ -28,16 +28,84 @@
           <td class="side-headings"> : &nbsp;</td>
           <td><input readonly="true" formControlName = "id" type="text" class="form-control"></td>
         </tr>
-        <tr *ngFor="let control of mainControlNames | keyvalue : returnZero">
-          <td class="side-headings">{{ control.value }}</td>
+        <tr>
+          <td class="side-headings">Product Name</td>
           <td class="side-headings"> : &nbsp;</td>
-          <td><input formControlName = "{{ control.key }}" type="text" class="form-control"></td>
+          <td><input [ngClass]="{ 'error-field' : product.get('name').touched && ! product.get('name').valid }" 
+            formControlName = "name" type="text" class="form-control"></td>
+        </tr>
+        <tr *ngIf="product.get('name').touched && ! product.get('name').valid">
+          <td class="error-msg-row"></td>
+          <td class="error-msg-row">&nbsp;</td>
+          <td class="error-msg-row">
+            <p class="error-msg">Please enter product 'Name'</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="side-headings">Brand</td>
+          <td class="side-headings"> : &nbsp;</td>
+          <td><app-dropdown 
+            (onItemSelected)="brandSelected($event)" 
+            (dropdownOpened)="brandOpened()"
+            class="dropdown" dropdownHeader="Brand"></app-dropdown></td>
+        </tr>
+        <tr *ngIf="isBrandOpened && ! product.get('brand').valid">
+          <td class="error-msg-row"></td>
+          <td class="error-msg-row">&nbsp;</td>
+          <td class="error-msg-row">
+            <p class="error-msg">Please select 'Brand' for product</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="side-headings">Gender Group</td>
+          <td class="side-headings"> : &nbsp;</td>
+          <td><app-dropdown 
+            (onItemSelected)="genderGroupSelected($event)" 
+            (dropdownOpened)="genderGroupOpened()"
+            class="dropdown" dropdownHeader="Gender Group"></app-dropdown></td>
+        </tr>
+        <tr *ngIf="isGenderGroupOpened && ! product.get('genderGroup').valid">
+          <td class="error-msg-row"></td>
+          <td class="error-msg-row">&nbsp;</td>
+          <td class="error-msg-row">
+            <p class="error-msg">Please select 'Gender Group' for product</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="side-headings">Category</td>
+          <td class="side-headings"> : &nbsp;</td>
+          <td><app-dropdown 
+            (onItemSelected)="categorySelected($event)" 
+            (dropdownOpened)="categoryOpened()"
+            class="dropdown" dropdownHeader="Category"></app-dropdown></td>
+        </tr>
+        <tr *ngIf="isCategoryOpened && ! product.get('category').valid">
+          <td class="error-msg-row"></td>
+          <td class="error-msg-row">&nbsp;</td>
+          <td class="error-msg-row">
+            <p class="error-msg">Please select 'Category' for product</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="side-headings">Sub Category</td>
+          <td class="side-headings"> : &nbsp;</td>
+          <td><app-dropdown 
+            (onItemSelected)="subCategorySelected($event)"
+            (dropdownOpened)="subCategoryOpened()"
+            class="dropdown" dropdownHeader="Sub Category"></app-dropdown></td>
+        </tr>
+        <tr *ngIf="isSubCategoryOpened && ! product.get('subCategory').valid">
+          <td class="error-msg-row"></td>
+          <td class="error-msg-row">&nbsp;</td>
+          <td class="error-msg-row">
+            <p class="error-msg">Please select 'Sub Category' for product</p>
+          </td>
         </tr>
         <tr>
           <td class="side-headings">Status</td>
           <td class="side-headings"> : &nbsp;</td>
           <td><div style="text-align: justify;">
-            <input formControlName = "status" type="radio" name="status" class="radio" 
+            <input formControlName = "status" type="radio" name="status" class="radio"
             value="Active" checked>
             <label class="radio-text">Active</label>
             <input formControlName = "status" type="radio" name="status" class="radio"
@@ -71,7 +139,8 @@
         <div id="input-fields-container" *ngFor="let size of getSizeControls().controls; let i = index">
           <div [formGroup]="size">
             <div *ngFor = "let control of sizeControlNames" class="size-fields">
-              <input formControlName = "{{ control }}" type="text" class="form-control"></div>
+              <input [ngClass]="{ 'error-field ' : validateSizeField(i, control)}" 
+                formControlName = "{{ control }}" type="text" class="form-control"></div>
             <div class="size-fields" style="padding: 12px 0px;">
               <div class="radio-button-container">
                 <input formControlName = "status" type="radio"  class="radio" value="Active" checked>
@@ -85,7 +154,7 @@
         </div>
       </div>
       <a (click)="addSizeControl()" id="add-size">+ Add new Size</a>
-      <button *ngIf="!editMode" type="submit" class="btn btn-primary">Add Product</button>
+      <button [disabled]="!product.valid" *ngIf="!editMode" type="submit" class="btn btn-primary">Add Product</button>
       <button (click)="onSaveChanges()" style="margin-right: 8px;" *ngIf="editMode" type="button" class="btn btn-success">Save Changes</button>
       <button (click)="onDeleteProduct()" *ngIf="editMode" type="button" class="btn btn-danger">Delete Product</button>
     </div>

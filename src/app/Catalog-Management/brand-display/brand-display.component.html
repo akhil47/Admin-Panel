@@ -5,19 +5,19 @@
         <tr>
           <td class="side-headings cell-1">Brand Name</td>
           <td class="side-headings cell-2"> : &nbsp;</td>
-          <td class="cell-3">{{ 'Tommy Hilfiger' }}</td>
+          <td class="cell-3">{{ brand.name }}</td>
         </tr>
         <tr>
           <td class="side-headings">Status</td>
           <td class="side-headings"> : &nbsp;</td>
-          <td>{{ 'Active' }}</td>
+          <td>{{ brand.status }}</td>
         </tr>
       </table>
       <div id="seperator"></div>
       <p class="main-side-heading">Image</p>
       <div id="seperator"></div>
       <div id="images-container">
-        <img src="https://bit.ly/2VikV42" alt="Image Not Available">
+        <img [src]="brand.image" alt="Image Not Available">
       </div>
       <button (click)="onEditDetails()" type="button" class="btn btn-primary">Edit Details</button>
     </div>

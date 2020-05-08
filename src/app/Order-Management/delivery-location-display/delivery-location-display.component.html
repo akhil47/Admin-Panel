@@ -1,0 +1,26 @@
+<div id="main-container">
+        <p id="header">Delivery Location Details</p>
+        <div id="details-container">
+          <table style="width: 100%;">
+            <tr>
+              <td class="side-headings">Location Name</td>
+              <td class="side-headings"> : &nbsp;</td>
+              <td>{{ deliveryLocation.locationName }}</td>
+            </tr>
+            <tr>
+                <td class="side-headings">Pincode</td>
+                <td class="side-headings"> : &nbsp;</td>
+                <td>{{ deliveryLocation.pincode }}</td>
+              </tr>
+            <tr>
+              <td class="side-headings">Status</td>
+              <td class="side-headings"> : &nbsp;</td>
+              <td><div style="text-align: justify;">
+                {{ deliveryLocation.status }}
+              </div></td>
+            </tr>
+          </table>
+          <div id="seperator"></div>
+          <button (click)="editDeliveryLocation()" type="submit" style="margin-top: 8px" class="btn btn-primary">Edit Delivery Location</button>
+        </div>
+</div>
